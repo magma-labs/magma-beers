@@ -17,3 +17,4 @@
 /yarn-error.log
 /config/database.yml
 .byebug_history
+.pgvmrc
