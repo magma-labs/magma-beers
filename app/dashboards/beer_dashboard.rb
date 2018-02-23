@@ -13,6 +13,8 @@ class BeerDashboard < Administrate::BaseDashboard
     description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    photo: PaperclipField
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -21,6 +23,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :photo,
     :name,
     :description,
   ].freeze
