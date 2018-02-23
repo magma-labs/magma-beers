@@ -13,7 +13,7 @@ class BeerDashboard < Administrate::BaseDashboard
     description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    photo: PaperclipField
+    photo: PaperclipField,
 
   }.freeze
 
@@ -32,6 +32,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     # :id
+    :photo,
     :name,
     :description,
     # :created_at,
@@ -42,6 +43,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :photo,
     :name,
     :description,
   ].freeze
