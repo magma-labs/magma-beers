@@ -22,10 +22,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Devise
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 # gem 'capistrano-rails', group: :development
 # Use Capistrano for deployment
 
 group :development, :test do
+  gem 'dotenv-rails'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
