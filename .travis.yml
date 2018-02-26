@@ -8,6 +8,6 @@ deploy:
     repo: magma-labs/magma-beers
     branch: master
   run:
-    - "bundle install"
-    - "rake db:migrate"
+    - "bundle exec rake db:migrate"
+    - "rake cleanup"
     - restart
