@@ -7,7 +7,4 @@ deploy:
   on:
     repo: magma-labs/magma-beers
     branch: master
-  run:
-    - "bundle install"
-    - "rake db:migrate"
-    - restart
+  run: "bundle exec rake db:migrate"
