@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  before { @user = build(:user) }
-  subject { @user }
+  let(:user) { build(:user) }
+  subject { user }
 
   it { should be_valid }
   it { should validate_presence_of :email }
