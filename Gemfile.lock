@@ -331,6 +331,7 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
+  font-awesome-rails
   factory_bot_rails (~> 4.0)
   haml-rails
   jbuilder (~> 2.5)
