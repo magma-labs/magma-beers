@@ -43,8 +43,9 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'capybara-webkit'
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails", "~> 4.0"
   gem 'pry'
 end
 
@@ -53,10 +54,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :production do
-  gem 'dotenv-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
