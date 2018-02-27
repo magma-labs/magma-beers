@@ -29,6 +29,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+# Rolify and CanCan
+gem 'cancancan'
+gem 'rolify'
+
 # gem 'capistrano-rails', group: :development
 # Use Capistrano for deployment
 

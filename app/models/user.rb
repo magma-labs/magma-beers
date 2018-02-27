@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+  after_create :assign_role
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -15,5 +18,9 @@ class User < ApplicationRecord
       )
     end
     user
+  end
+
+  def assign_role
+    add_role(:user)
   end
 end
