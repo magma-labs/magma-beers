@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class BeerDashboard < Administrate::BaseDashboard
+class IdentityDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,11 +8,20 @@ class BeerDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    user: Field::BelongsTo,
+    id: Field::Number,
+    provider: Field::String,
+    accesstoken: Field::String,
+    refreshtoken: Field::String,
+    uid: Field::String,
     name: Field::String,
-    description: Field::Text,
+    email: Field::String,
+    nickname: Field::String,
+    image: Field::String,
+    phone: Field::String,
+    urls: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    photo: PaperclipField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -21,17 +30,27 @@ class BeerDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :photo,
-    :name,
-    :description,
+    :user,
+    :id,
+    :provider,
+    :accesstoken,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :photo,
+    :user,
+    :id,
+    :provider,
+    :accesstoken,
+    :refreshtoken,
+    :uid,
     :name,
-    :description,
+    :email,
+    :nickname,
+    :image,
+    :phone,
+    :urls,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,15 +59,23 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :photo,
+    :user,
+    :provider,
+    :accesstoken,
+    :refreshtoken,
+    :uid,
     :name,
-    :description,
+    :email,
+    :nickname,
+    :image,
+    :phone,
+    :urls,
   ].freeze
 
-  # Overwrite this method to customize how beers are displayed
+  # Overwrite this method to customize how identities are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(beer)
-    "Beer #{beer.name}"
-  end
+  # def display_resource(identity)
+  #   "Identity ##{identity.id}"
+  # end
 end

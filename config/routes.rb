@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   namespace :admin do
+    resources :users
+    resources :roles
+    # get '/roles', to: 'roles#index'
+    # get '/roles/:id', to: 'roles#show'
+    resources :identities
     resources :beers
 
-    root to: "beers#index"
+    root to: "users#index"
   end
 end

@@ -1,5 +1,5 @@
 module Admin
-  class BeersController < Admin::ApplicationController
+  class UsersController < Admin::ApplicationController
     before_action :authenticate_user!
     load_and_authorize_resource
     # To customize the behavior of this controller,
@@ -7,14 +7,14 @@ module Admin
     #
     # def index
     #   super
-    #   @resources = Beer.
+    #   @resources = User.
     #     page(params[:page]).
     #     per(10)
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Beer.find_by!(slug: param)
+    #   User.find_by!(slug: param)
     # end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
