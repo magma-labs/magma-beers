@@ -21,3 +21,6 @@
 
 # Dotenv
 /.env
+
+# IDE's
+/.DS_Store
