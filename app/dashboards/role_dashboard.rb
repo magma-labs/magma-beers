@@ -10,7 +10,6 @@ class RoleDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     users: Field::HasMany,
     resource: Field::Polymorphic,
-    # id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -24,16 +23,14 @@ class RoleDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :users,
     :resource,
-    # :id,
     :name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :users,
+    # :users,
     :resource,
-    # :id,
     :name,
     :created_at,
     :updated_at,
@@ -43,7 +40,7 @@ class RoleDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :users,
+    # :users,
     :resource,
     :name,
   ].freeze

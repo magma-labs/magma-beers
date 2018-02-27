@@ -31,19 +31,14 @@ class IdentityDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :id,
     :provider,
-    :accesstoken,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :id,
     :provider,
-    :accesstoken,
-    :refreshtoken,
     :uid,
     :name,
     :email,
@@ -61,8 +56,6 @@ class IdentityDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :provider,
-    :accesstoken,
-    :refreshtoken,
     :uid,
     :name,
     :email,
@@ -74,8 +67,8 @@ class IdentityDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how identities are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(identity)
-  #   "Identity ##{identity.id}"
-  # end
+
+  def display_resource(identity)
+    "Identity #{identity.name}"
+  end
 end
