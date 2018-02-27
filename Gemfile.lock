@@ -83,6 +83,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    database_cleaner (1.6.2)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     devise (4.4.1)
@@ -325,6 +326,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   capybara-webkit
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
   dotenv-rails
   factory_bot_rails
