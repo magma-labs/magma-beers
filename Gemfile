@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'ffaker'
 end
 
 group :development do
