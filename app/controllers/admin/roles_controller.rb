@@ -2,6 +2,7 @@ module Admin
   class RolesController < Admin::ApplicationController
     before_action :authenticate_user!
     load_and_authorize_resource
+
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
