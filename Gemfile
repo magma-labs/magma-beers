@@ -31,6 +31,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+# Rolify and CanCan
+gem 'cancancan'
+gem 'rolify'
+
 # gem 'capistrano-rails', group: :development
 # Use Capistrano for deployment
 
@@ -47,6 +51,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem "factory_bot_rails", "~> 4.0"
   gem 'pry'
+  gem 'ffaker'
 end
 
 group :development do
