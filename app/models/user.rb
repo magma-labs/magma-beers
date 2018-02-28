@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def assign_role
     add_role(:user)
   end
+
+  def assign_role
+    add_role(:user)
+  end
 end
