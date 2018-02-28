@@ -1,0 +1,35 @@
+.login-box {
+  height: 98%;
+}
+
+.btn.social> :first-child,
+.btn-large.social> :first-child,
+.col.social> :first-child {
+  margin: 0 5px 0 5px;
+}
+
+.btn-social {
+  padding-left: 0;
+}
+
+.btn-large.social, .col.social {
+  margin: 0;
+  width: 100%;
+
+  i {
+    max-width: 50px;
+    width: 50px;
+  }
+}
+
+.facebook {
+  background-color: #3b5998 !important;
+  color: #fff !important;
+}
+
+.google {
+  background-color: #dd4b39 !important;
+  color: #fff !important;
+}
+
+

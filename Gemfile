@@ -11,6 +11,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
+gem 'materialize-sass', '~> 1.0.0.alpha4'
+gem "font-awesome-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'administrate'
 gem 'paperclip'
@@ -39,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
