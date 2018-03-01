@@ -16,6 +16,7 @@ gem "font-awesome-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'administrate'
 gem 'paperclip'
+gem 'aws-sdk'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
