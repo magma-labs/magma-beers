@@ -90,9 +90,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.paperclip_defaults = {
     storate: :s3,
-    s3_credentials : {
-      bucket: ENV['BUCKET_NAME']
-      access_key_id: ENV['FULL_ACCESS_KEY']
+    s3_credentials: {
+      bucket: ENV['BUCKET_NAME'],
+      access_key_id: ENV['FULL_ACCESS_KEY'],
       secret_access_key: ENV['SCRET_FULL_ACCESS_KEY']
     }
   }
