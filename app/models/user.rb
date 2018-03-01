@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :email
   validates_presence_of :email
-  validates_presence_of :password
+  validates_presence_of :password, :on => create
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

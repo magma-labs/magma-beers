@@ -3,3 +3,13 @@ body {
   background: image-url("background.png");
   height: 100%;
 }
+
+#card-alert button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 20px;
+  color: #fff;
+}
