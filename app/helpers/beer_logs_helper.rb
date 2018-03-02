@@ -1,0 +1,2 @@
+module BeerLogsHelper
+end
