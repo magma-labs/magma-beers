@@ -1,6 +1,7 @@
 class Beer < ApplicationRecord
   has_attached_file :photo, styles: { thumbnail: "300x300>", thumb: "100x100>" }, default_url: "noimage.jpg"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+  has_many :beer_logs
 
   resourcify
 
