@@ -17,7 +17,7 @@ language: ruby
 rvm:
   - 2.5.0
 script:
-  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rake db:migrate RAILS_ENV=test
   - bundle exec rspec
   - whereis google-chrome-stable
   - whereis chromedriver
