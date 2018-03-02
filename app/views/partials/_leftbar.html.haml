@@ -3,7 +3,7 @@
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
   %br/
   #profilepic
-    %img.circle.responsive-img{:alt => "", :src => (current_user.image ||= image_url('noimage.jpg')) + "?type=large", :width => "150", :height => "150" }/
+    %img.circle.responsive-img{:alt => "", :src => (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
     %br/
     %br/
     = current_user.name ||= current_user.email

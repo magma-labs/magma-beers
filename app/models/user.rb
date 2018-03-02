@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  include Gravtastic
+  gravtastic
+
   after_create :assign_role
 
   validates_uniqueness_of :email

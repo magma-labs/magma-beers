@@ -649,6 +649,7 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -875,6 +876,7 @@ DEPENDENCIES
   factory_bot_rails (~> 4.0)
   ffaker
   font-awesome-rails
+  gravtastic
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
