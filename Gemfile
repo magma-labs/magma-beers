@@ -43,6 +43,7 @@ group :development, :test do
   gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
+  gem 'pry-nav'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -51,7 +52,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara-webkit'
   gem "factory_bot_rails", "~> 4.0"
-  gem 'pry'
   gem 'ffaker'
 end
 
