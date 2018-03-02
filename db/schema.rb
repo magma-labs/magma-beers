@@ -15,20 +15,30 @@
     # These are extensions that must be enabled in order to support this database
     enable_extension "plpgsql"
 
-    create_table "beers", force: :cascade do |t|
-      t.string "name"
-      t.text "description"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.string "photo_file_name"
-      t.string "photo_content_type"
-      t.integer "photo_file_size"
-      t.datetime "photo_updated_at"
-      t.float "abv"
-      t.integer "ibu"
-      t.boolean "status"
-      t.integer "year"
-    end
+  create_table "beer_logs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "beer_id"
+    t.decimal "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_beer_logs_on_beer_id"
+    t.index ["user_id"], name: "index_beer_logs_on_user_id"
+  end
+
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.float "abv"
+    t.integer "ibu"
+    t.boolean "status"
+    t.integer "year"
+  end
 
     create_table "identities", force: :cascade do |t|
       t.bigint "user_id"
@@ -94,5 +104,7 @@
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "beer_logs", "beers"
+  add_foreign_key "beer_logs", "users"
   add_foreign_key "identities", "users"
 end

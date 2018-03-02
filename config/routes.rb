@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Resources
   resources :users
   resources :beers
+  resources :beer_logs
 
   root to: "home#index", as: :user_root
   mount Sidekiq::Web => '/sidekiq'
