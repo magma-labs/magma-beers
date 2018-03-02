@@ -1,7 +1,12 @@
 html,
+body,
+main {
+  height: 100%;
+}
+
 body {
   background: image-url("background.png");
-  height: 100%;
+
 }
 
 #card-alert button {
@@ -13,3 +18,15 @@ body {
   font-size: 20px;
   color: #fff;
 }
+
+.layout-padding {
+  padding-left: 250px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  .layout-padding {
+    padding-left: 0;
+  }
+}
+

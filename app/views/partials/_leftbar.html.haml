@@ -1,0 +1,29 @@
+%a.button-collapse{"data-activates" => "slide-out", :href => "#"}
+  %i.material-icons menu
+%ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
+  %br/
+  #profilepic
+    %img.circle.responsive-img{:alt => "", :src => (current_user.image ||= image_url('noimage.jpg')) + "?type=large", :width => "150", :height => "150" }/
+    %br/
+    %br/
+    = current_user.name ||= current_user.email
+  %br/
+  %br/
+  %li
+    %a.blue-text.text-lighten-2{:href => "#"}
+      %i.fa.fa-home.fa-2x.fa-fw>
+      Home
+  %li
+    %a#links.pink-text.lighten-2{:href => "#"}
+      %i.fa.fa-beer.fa-2x.fa-fw>
+      Beers
+  %li
+    %a#links.green-text.text-lighten-2{:href => "#"}
+      %i.fa.fa-cog.fa-2x.fa-fw>
+      Settings
+  %li
+    %a#links.yellow-text.text-lighten-2{:href => "#"}
+      %i.fa.fa-graduation-cap.fa-2x.fa-fw>
+      Education
+  %li
+    = link_to '<i class="fa fa-code fa-2x fa-fw"></i> Log out'.html_safe, destroy_user_session_path, method: :delete, :class => 'links.pink-text.text-lighten-2'
