@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(User) && resource.has_role?(:admin)
       admin_users_path
     else
-      user_root
+      user_root_path
     end
   end
 end
