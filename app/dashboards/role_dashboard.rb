@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class BeerDashboard < Administrate::BaseDashboard
+class RoleDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,11 +8,11 @@ class BeerDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    users: Field::HasMany,
+    resource: Field::Polymorphic,
     name: Field::String,
-    description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    photo: PaperclipField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -21,17 +21,17 @@ class BeerDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :photo,
+    :users,
+    :resource,
     :name,
-    :description,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :photo,
+    # :users,
+    :resource,
     :name,
-    :description,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,15 +40,15 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :photo,
+    # :users,
+    :resource,
     :name,
-    :description,
   ].freeze
 
-  # Overwrite this method to customize how beers are displayed
+  # Overwrite this method to customize how roles are displayed
   # across all pages of the admin dashboard.
-  #
-  def display_resource(beer)
-    "Beer #{beer.name}"
+
+  def display_resource(role)
+    "Role #{role.name}"
   end
 end

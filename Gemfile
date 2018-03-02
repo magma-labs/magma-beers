@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'administrate'
 gem 'paperclip'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'aws-sdk'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
@@ -31,6 +32,10 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+# Rolify and CanCan
+gem 'cancancan'
+gem 'rolify'
 
 # gem 'capistrano-rails', group: :development
 # Use Capistrano for deployment
@@ -48,6 +53,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem "factory_bot_rails", "~> 4.0"
   gem 'pry'
+  gem 'ffaker'
 end
 
 group :development do
@@ -58,3 +64,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'dotenv-rails'
+end

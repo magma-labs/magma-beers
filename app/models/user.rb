@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+  after_create :assign_role
 
   validates_uniqueness_of :email
   validates_presence_of :email
@@ -15,5 +18,9 @@ class User < ApplicationRecord
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
     end
+  end
+
+  def assign_role
+    add_role(:user)
   end
 end
