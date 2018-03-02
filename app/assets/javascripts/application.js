@@ -12,6 +12,16 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require materialize
+//= require jquery
+//= require_tree .
+
+$(document).ready(function () {
+  Materialize.fadeInImage('#profilepic');
+  Materialize.showStaggeredList('#slide-out');
+
+  $(".button-collapse").sideNav();
+  $('.collapsible').collapsible();
+});
+
 

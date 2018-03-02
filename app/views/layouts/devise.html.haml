@@ -10,9 +10,5 @@
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"}
 
   %body
-
-    = render "partials/leftbar"
-
-    %main.layout-padding
-      = render "partials/alerts"
+    %main
       = yield

@@ -16,6 +16,8 @@ gem "font-awesome-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'administrate'
 gem 'paperclip'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'gravtastic'
 gem 'aws-sdk'
 
 gem 'coffee-rails', '~> 4.2'
