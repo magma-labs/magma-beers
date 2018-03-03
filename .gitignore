@@ -18,6 +18,7 @@
 /config/database.yml
 .byebug_history
 .pgvmrc
+dump.rdb
 
 # Dotenv
 /.env
