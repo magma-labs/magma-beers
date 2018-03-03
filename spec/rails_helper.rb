@@ -53,6 +53,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
+  config.include Features::SessionHelpers, type: :feature
   config.include Warden::Test::Helpers
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

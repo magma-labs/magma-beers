@@ -51,6 +51,8 @@ GEM
       momentjs-rails (~> 2.8)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     arel (8.0.0)
     autoprefixer-rails (8.0.0)
       execjs
@@ -123,7 +125,7 @@ GEM
     aws-sdk-cloudwatch (1.4.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-cloudwatchevents (1.1.0)
+    aws-sdk-cloudwatchevents (1.2.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
     aws-sdk-cloudwatchlogs (1.2.0)
@@ -193,7 +195,7 @@ GEM
     aws-sdk-dynamodbstreams (1.0.1)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-ec2 (1.28.0)
+    aws-sdk-ec2 (1.29.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
     aws-sdk-ecr (1.3.0)
@@ -521,7 +523,7 @@ GEM
     aws-sdk-serverlessapplicationrepository (1.1.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-servicecatalog (1.3.0)
+    aws-sdk-servicecatalog (1.4.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
     aws-sdk-servicediscovery (1.1.0)
@@ -548,13 +550,13 @@ GEM
     aws-sdk-sqs (1.3.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-ssm (1.7.0)
+    aws-sdk-ssm (1.8.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
     aws-sdk-states (1.2.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-storagegateway (1.2.0)
+    aws-sdk-storagegateway (1.3.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
     aws-sdk-support (1.0.1)
@@ -606,6 +608,9 @@ GEM
       json
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -667,6 +672,7 @@ GEM
       ruby_parser (~> 3.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -701,7 +707,7 @@ GEM
     materialize-sass (1.0.0.alpha4)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.5.2)
-    method_source (0.9.0)
+    method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -743,9 +749,12 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (1.0.0)
-    pry (0.11.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
@@ -823,6 +832,7 @@ GEM
     sexp_processor (4.10.1)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -869,6 +879,7 @@ DEPENDENCIES
   cancancan
   capybara (~> 2.13)
   capybara-webkit
+  chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
   devise
@@ -887,7 +898,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip
   pg (>= 0.18, < 2.0)
-  pry
+  pry-nav
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.5)

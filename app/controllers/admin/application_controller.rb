@@ -10,7 +10,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to root_path, alert: 'Not authorized.' unless access?
+      redirect_to user_root_path, alert: 'Not authorized.' unless access?
     end
 
     def access?

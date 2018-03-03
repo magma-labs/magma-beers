@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"  }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
 
   # Resources
   resources :users
 
-  root to: "home#index"
+  root to: "home#index", as: :user_root
 
   namespace :admin do
     resources :users
     resources :roles
-    # get '/roles', to: 'roles#index'
-    # get '/roles/:id', to: 'roles#show'
     resources :identities
     resources :beers
 
