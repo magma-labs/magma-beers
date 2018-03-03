@@ -5,11 +5,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  include Gravtastic
+  gravtastic
+
   after_create :assign_role
 
   validates_uniqueness_of :email
   validates_presence_of :email
-  validates_presence_of :password
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -16,9 +16,4 @@ RSpec.describe User, type: :model do
 	  it { should respond_to(:password_confirmation) }
 	end
 
-	describe "is not valid without a password" do
-	  before { subject.password = "" }
-	  it { should_not be_valid }
-	end
-
 end
