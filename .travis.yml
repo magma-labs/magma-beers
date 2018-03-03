@@ -1,23 +1,13 @@
-cache: bundler
-env:
-  DISPLAY: :99.0
-  RAILS_ENV: test
-  CHROME_DRIVER_VERSION: '2.30'
-addons:
-  chrome: stable
-install: bundle install --without development
 services:
   - postgresql
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - bin/travis_system_setup.sh
 dist: trusty
 language: ruby
 rvm:
   - 2.5.0
 script:
-  - bin/rails test:system
   - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rspec
 deploy:

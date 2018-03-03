@@ -55,6 +55,10 @@ group :development, :test do
   gem 'ffaker'
 end
 
+group :test do
+  gem "chromedriver-helper"
+end
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
