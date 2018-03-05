@@ -19,6 +19,7 @@ gem 'paperclip'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'gravtastic'
 gem 'aws-sdk'
+gem 'brewery_db'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
