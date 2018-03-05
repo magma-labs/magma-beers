@@ -13,14 +13,14 @@ deploy:
   provider: heroku
   api_key:
     secure: wVtfiSI0/78Am7R+k3XtDTo2B4lU3R8i35aiNoUmUvdnJScEcssbjnvrD8HIQXfvP2z7UUpQpMa9qCGgWJvGMGsVWU/U5aVRM66/uCh97xnKUb3bpaaBtVthloDEeuMN6vQtcY706QIXS1M4IkGo/85x29CxKlLyc/dxM9UBz7GAsWLtjh/GAPvKbOZwFoTli2vyMHJuo2flly7bEjIciEnN6sQmNjx/wtmhDaUWBB5nqswTA26Y+E0fbEsD0zP28XmK4FHknsNAgLabi0SwmZQOwD5INagHyCEEHZ80+pcODDJXeDsb8JN2CVRIyI6ZrVNdyO0i5vtmjXcbCtWHPDG6uRN0oijmCrQqYSClTMjq7wPpY+Js39rPBR3Ur3um/FT/BUy8psvaKdy70EnupNiD0XkmYuGmBdZQk3t+AbTNnodujMhwRNbFibnUaoONVX7E4gYluWp2V81e3rgNq1kiOIBdaddc0UImVLo3JS9xhKVS700OB6uM8tQFa/CLulQf7vcbL8Ip9H4ypv1SBEgryX+pTJfFHqemfgbRwIx8QzbOouum80HR8NH2rx0K9bbiq1UEC+QBuMy77CboJ1I32RZKbx8qqdad4rnylDKPLMe+WBRdcqHt3r2si6UIKcC6Akw85JL55Yhb8pDaJSSCM3VXS+EpYVP0GA5xnTI=
-    app: magma-beers
-    on:
-      repo: magma-labs/magma-beers
-      branch: master
-      run:
-        - "bundle exec rake db:migrate"
-        - "rake cleanup"
-        - restart
+  app: magma-beers
+  on:
+    repo: magma-labs/magma-beers
+    branch: master
+  run:
+    - "bundle exec rake db:migrate"
+    - "rake cleanup"
+    - restart
 dist: trusty
 language: ruby
 rvm:
