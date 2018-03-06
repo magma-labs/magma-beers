@@ -955,7 +955,6 @@ DEPENDENCIES
   paperclip
   pg (>= 0.18, < 2.0)
   premailer-rails
-  pry
   pry-nav
   pry-rails
   puma (~> 3.7)

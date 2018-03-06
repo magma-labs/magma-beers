@@ -51,7 +51,6 @@ gem 'sidekiq-scheduler'
 gem 'dotenv-rails'
 
 group :development, :test do
-  gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
