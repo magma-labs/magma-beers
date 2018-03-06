@@ -4,11 +4,6 @@ main {
   height: 100%;
 }
 
-body {
-  background: image-url("background.png");
-
-}
-
 #card-alert button {
   background: none;
   border: none;
@@ -19,8 +14,25 @@ body {
   color: #fff;
 }
 
+.layout-background {
+  background: image-url("background.png");
+}
+
+
 .layout-padding {
   padding-left: 250px;
+}
+
+.page-layout {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.page-title {
+  margin: 0;
 }
 
 
