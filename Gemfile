@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
+
 gem 'administrate'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails'
@@ -19,7 +20,6 @@ gem 'aws-sdk'
 gem 'brewery_db'
 gem 'kaminari'
 
-gem 'coffee-rails', '~> 4.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
@@ -48,26 +48,14 @@ gem 'sidekiq-scheduler'
 # gem 'capistrano-rails', group: :development
 # Use Capistrano for deployment
 
+gem 'dotenv-rails'
+
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  gem 'database_cleaner'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'capybara-webkit'
-  gem "factory_bot_rails", "~> 4.0"
-  gem 'ffaker'
-  gem 'rails-controller-testing'
-end
-
-group :test do
-  gem "chromedriver-helper"
 end
 
 group :development do
@@ -88,14 +76,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails', '~> 4.0'
-end
-
-group :production do
-  gem 'dotenv-rails'
+  gem "chromedriver-helper"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-group :production do
-  gem 'dotenv-rails'
-end
