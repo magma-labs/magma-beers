@@ -1,3 +1,9 @@
+#nav-mobile {
+  li {
+    margin-left: 20px;
+  }
+}
+
 #profilepic {
   text-align: center;
 }
@@ -37,5 +43,6 @@
   transform: translate(0px);
 }
 
-
-
+.nav-wrapper {
+  padding-left: 10px;
+}

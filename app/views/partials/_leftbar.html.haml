@@ -1,5 +1,11 @@
-%a.button-collapse{"data-activates" => "slide-out", :href => "#"}
-  %i.material-icons menu
+%nav.show-on-small.grey.darken-4.blue-grey-text.text-lighten-4
+  .nav-wrapper
+    %a.button-collapse{"data-activates" => "slide-out", :href => "#"}
+      %i.material-icons menu
+    %ul#nav-mobile.left
+      %li
+        = current_user.name ||= current_user.email
+
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
   %br/
   #profilepic
