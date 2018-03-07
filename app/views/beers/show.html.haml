@@ -1,0 +1,22 @@
+.col.s12.m8
+  .card-panel
+    .row.valign-wrapper
+      .col.s2.img-container.center
+        = image_tag @beer.photo || "noimage.jpg", class: 'circle responsive-img beer-image'
+      .col.s10
+        %span.black-text
+          This is a square image. Add the "circle" class to it to make it appear circular.
+
+
+
+    .row
+      .col.s6
+        .chip
+          = @beer.abv
+          \% ABV
+      .col.s6
+        .chip
+          = @beer.ibu
+          \ IBU
+  .actions
+    = link_to "Return", beers_path, class: "badge waves-effect"

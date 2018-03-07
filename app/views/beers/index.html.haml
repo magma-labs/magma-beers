@@ -1,7 +1,34 @@
-#h1 Beers
-- @beers.each do |item|
-  -# %p= item.name
-  %hr
-  = item
-  %hr
+.page-layout
+  .row.valign-wrapper
+    .col.s9.m9.l8.left-align.left
+      .card-title.grey-text.text-darken-3 Beers catalog
+    .col.s3.m3.l4.right-align
+      = link_to new_beer_path, class: "btn btn-large waves-effect waves-light" do
+        Add beer
+
+  %br/
+  %br/
+
+  %table.bordered
+    %tbody
+    - @beers.each do |item|
+      %tr
+        %td.img-container
+          = image_tag item.photo || "noimage.jpg", class: 'circle responsive-img beer-image'
+        %td
+          .row
+            .col.flow-text.orange-text.darken4= item.name
+          .row
+            .col= item.description
+          .row
+            - if item.abv
+              .chip
+                = item.abv
+                \% ABV
+            - if item.ibu
+              .chip
+                = item.ibu
+                \ IBU
+
+
 
