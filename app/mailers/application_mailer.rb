@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'report@magmabeers.com'
+  default from: 'juan.negrete@magmalabs.io'
   layout 'mailer'
 end

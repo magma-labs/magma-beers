@@ -19,10 +19,17 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(current_user.id)
-  end
+  en	d
 
   def user_params
     params.require(:user).permit(:email)
   end
+
+  # def send_email
+  #   UserMailer.send_email(
+  #     name: params[:name], phone: params[:phone], email: params[:email],
+  #     message: params[:message]
+  #   ).deliver redirect_to root_url, notice: 'Email sent!'
+  # end
 
 end

@@ -19,6 +19,7 @@ gem 'gravtastic'
 gem 'aws-sdk'
 gem 'brewery_db'
 gem 'kaminari'
+gem 'aws-sdk-rails'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
