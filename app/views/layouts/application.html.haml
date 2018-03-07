@@ -16,5 +16,6 @@
     = render "partials/leftbar"
 
     %main.layout-padding
-      = render "partials/alerts"
-      = yield
+      .container
+        = render "partials/alerts"
+        = yield
