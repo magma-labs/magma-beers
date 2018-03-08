@@ -9,20 +9,21 @@
   %br/
   %br/
 
-  %form#form1.hide-on-med-and-down
-  .input-field
-    %input#search{ :required => "", :type => "search", :autocomplete => "off", :placeholder => "Search any beer you want" }/
-    %label.label-icon{:for => "search"}
-      %i.material-icons search
-    %i.material-icons close
-    #searchResults
-
+  .row
+    = form_tag(beers_path, method: :get) do
+      .input-field.col.s10.m10
+        = text_field_tag :search, params[:search], :placeholder => "Search any beer you want", :autocomplete => "off"
+        %label.label-icon{:for => "search"}
+      .input-field.col.s2.m2
+        %button.btn.waves-effect{:name => "action", :type => "submit"}
+          .hide-on-small-only Search
+          %i.material-icons.show-on-small-only  search
 
   %br/
 
   %table.bordered
     %tbody
-    - @beers.each do |item|
+    - if @beers.each do |item|
       %tr
         %td.img-container
           = image_tag item.photo || "noimage.jpg", class: 'circle responsive-img beer-image'
@@ -39,7 +40,12 @@
             - if item.ibu
               .chip
                 = item.ibu
-                \ IBU
+                IBU
+    - end.empty?
+      %br/
+      .flow-text.red-text.text-darken-3.center
+        %i.fa.fa-beer
+        Oh sorry, We don't have that special beer.
 
 
 
