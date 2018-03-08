@@ -10,3 +10,9 @@
       = alert
     %button.close.red-text{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button", :onclick => "this.parentElement.style.display='none';"}
       %span{"aria-hidden" => "true"} ×
+- if flash[:success]
+  #card-alert.card.green.lighten-5
+    .card-content.green-text
+      = flash[:success]
+    %button.close.green-text{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button", :onclick => "this.parentElement.style.display='none';"}
+      %span{"aria-hidden" => "true"} ×
