@@ -3,7 +3,11 @@ class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @beers = Beer.all
+    if params[:search]
+      @beers = Beer.where('name LIKE ?', "%#{params[:search]}%")
+    else
+      @beers = Beer.all
+    end
   end
 
   def show
@@ -30,7 +34,7 @@ class BeersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def beer_params
-      params.require(:beer).permit(:name, :description, :photo, :status, :abv, :ibu)
+      params.require(:beer).permit(:name, :description, :photo, :status, :abv, :ibu, :search)
     end
 
 end

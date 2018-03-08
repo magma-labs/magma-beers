@@ -9,6 +9,17 @@
   %br/
   %br/
 
+  %form#form1.hide-on-med-and-down
+  .input-field
+    %input#search{ :required => "", :type => "search", :autocomplete => "off", :placeholder => "Search any beer you want" }/
+    %label.label-icon{:for => "search"}
+      %i.material-icons search
+    %i.material-icons close
+    #searchResults
+
+
+  %br/
+
   %table.bordered
     %tbody
     - @beers.each do |item|

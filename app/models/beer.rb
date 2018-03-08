@@ -7,4 +7,12 @@ class Beer < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of :name
   validates_presence_of :description
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['lower(name) ILIKE ?', "%#{search.downcase}%"])
+    else
+      find(:all)
+    end
+  end
 end
