@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  has_attached_file :image, styles: { thumbnail: "300x300>", thumb: "150x150>", small: "20x20" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   include Gravtastic
   gravtastic
