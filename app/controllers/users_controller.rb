@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [:destroy]
+  before_action :user
 
   def index
   end
@@ -8,21 +8,30 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'The user has been updated correctly.'
+    # udpate without password if password params are not present.
+    if user.update_without_password(user_params)
+      redirect_to edit_user_url, flash: { success:  'The user has been updated correctly.' }
+      # user.update or update_atrributes if the password is present
+      # bypass_sign_in(@user) update if the password has changed
     else
+      flash[:alert] =  user.errors.full_messages.join
       render :edit
     end
   end
 
   private
 
-  def set_user
-    @user = User.find(current_user.id)
+  def user
+    @user ||= User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(
+      :email,
+      :name,
+      :password,
+      :image
+    )
   end
 
 end

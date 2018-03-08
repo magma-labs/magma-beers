@@ -3,7 +3,7 @@
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
   %br/
   #profilepic
-    %img.circle.responsive-img{:alt => "", :src => (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
+    = image_tag(current_user.image.url(:thumb), size: "110x110", class: 'circle responsive-img', onerror: "this.onerror=null;this.src='" + current_user.gravatar_url + "?type=large';")
     %br/
     %br/
     = current_user.name ||= current_user.email
@@ -18,7 +18,7 @@
       %i.fa.fa-beer.fa-2x.fa-fw>
       Beers
   %li
-    %a#links.green-text.text-lighten-2{:href => "#"}
+    %a#links.green-text.text-lighten-2{:href => url_for(controller: "users", id: current_user, action: "edit")}
       %i.fa.fa-cog.fa-2x.fa-fw>
       Settings
   %li
