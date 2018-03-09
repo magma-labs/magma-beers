@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       :email,
       :name,
       :password,
-      :image
+      :photo
     )
   end
 end
