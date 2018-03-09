@@ -3,10 +3,10 @@ class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search]
-      @beers = Beer.where('name LIKE ?', "%#{params[:search]}%")
+    @beers = if params[:search]
+      Beer.where('name LIKE ?', "%#{params[:search]}%")
     else
-      @beers = Beer.all
+      Beer.all
     end
   end
 
