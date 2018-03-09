@@ -40,6 +40,7 @@ RSpec.describe BeersController, type: :controller do
       get :show, params: { id: beer.id }
       expect(assigns(:beer)).to eq(beer)
     end
+
     it "renders the :show template" do
       sign_in user
       get :show, params: { id: beer.id }
