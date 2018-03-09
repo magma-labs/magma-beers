@@ -47,6 +47,12 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
+# Capybara.register_driver :poltergeist do |app|
+#   #  Change domain name as necessary
+#   options = { url_blacklist: ['/images/thumb/missing.png'] } # you can also use * as a wildcard
+#   Capybara::Poltergeist::Driver.new(app, options)
+# end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
