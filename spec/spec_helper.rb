@@ -28,6 +28,10 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 
+  # config.after(:suite) do
+  #   FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
+  # end
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
