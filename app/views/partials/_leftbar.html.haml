@@ -9,7 +9,7 @@
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
   %br/
   #profilepic
-    = image_tag(current_user.photo.url(:thumb), size: "110x110", class: 'circle responsive-img', onerror: "this.onerror=null;this.src='" + current_user.gravatar_url + "?type=large';")
+    = image_tag current_user.photo.url(:thumb) || current_user.image, size: "110x110", class: 'circle responsive-img', onerror: "this.onerror=null;this.src='" + current_user.gravatar_url + "?type=large';"
     %br/
     %br/
     = current_user.name ||= current_user.email
