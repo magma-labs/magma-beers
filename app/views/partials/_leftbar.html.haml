@@ -27,5 +27,10 @@
     %a#links.green-text.text-lighten-2{:href => url_for(controller: "users", id: current_user, action: "edit")}
       %i.fa.fa-cog.fa-2x.fa-fw>
       Settings
+  - if current_user.has_role?(:admin)
+    %li
+      %a#links.red-text.text-lighten-1{:href => admin_users_path}
+        %i.fa.fa-lock.fa-2x.fa-fw>
+        Admin
   %li
     = link_to '<i class="fa fa-code fa-2x fa-fw"></i> Log out'.html_safe, destroy_user_session_path, method: :delete, :class => 'links.pink-text.text-lighten-2'
