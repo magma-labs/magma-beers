@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Resources
   resources :users
+  resources :beers
 
   root to: "home#index", as: :user_root
 

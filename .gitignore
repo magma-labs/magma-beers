@@ -24,3 +24,6 @@
 
 # IDE's
 /.DS_Store
+
+# Ignore PaperClip images
+/public/system

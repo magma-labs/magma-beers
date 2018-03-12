@@ -1,0 +1,9 @@
+- if object.errors.any?
+  The form contains #{pluralize(object.errors.count, "error")}.
+  #card-alert.card.red.lighten-5
+    .alert.alert-error
+      %ul.card-content.red-text
+        - object.errors.full_messages.each do |msg|
+          %li
+            * #{msg}
+

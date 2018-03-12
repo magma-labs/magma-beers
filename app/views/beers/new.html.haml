@@ -1,0 +1,30 @@
+.card-content.valign.center-block
+  .card-title.grey-text.text-darken-3 New beer
+  %hr.separator.grey.darken-3
+  = form_for @beer, :html => {:autocomplete => "off"} do |f|
+    - if @beer.errors.any?
+      = render 'partials/error_messages', object: @beer
+    .row
+      .input-field.col.s12
+        = f.label :name
+        = f.text_field :name, autofocus: true, required: true
+    .row
+      .input-field.col.s12
+        = f.label :description
+        = f.text_area :description, class: "materialize-textarea", required: true
+    .row
+      .input-field
+        = f.file_field :photo
+    .row
+      .input-field.col.s6
+        = f.label :abv
+        = f.number_field :abv, min: 0, max: 100
+      .input-field.col.s6
+        = f.label :ibu
+        = f.number_field :ibu, min: 0, max: 1000
+    %br/
+    .row.actions
+      .col-xs-12.col-sm-3
+        = f.submit "Save", class: "btn btn-large btn-success waves-effect green"
+        = link_to "Return", beers_path, class: "badge waves-effect"
+    %br/

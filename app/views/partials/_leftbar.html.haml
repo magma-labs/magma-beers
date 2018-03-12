@@ -1,5 +1,11 @@
-%a.button-collapse{"data-activates" => "slide-out", :href => "#"}
-  %i.material-icons menu
+%nav.grey.darken-4.blue-grey-text.text-lighten-4.hide-on-large-only
+  .nav-wrapper
+    %a.button-collapse{"data-activates" => "slide-out", :href => "#"}
+      %i.material-icons menu
+    %ul#nav-mobile.left
+      %li
+        = current_user.name ||= current_user.email
+
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4.go
   %br/
   #profilepic
@@ -10,20 +16,16 @@
   %br/
   %br/
   %li
-    %a.blue-text.text-lighten-2{:href => "#"}
+    %a.blue-text.text-lighten-2{:href => user_root_path }
       %i.fa.fa-home.fa-2x.fa-fw>
       Home
   %li
-    %a#links.pink-text.lighten-2{:href => "#"}
+    %a#links.pink-text.lighten-2{:href => beers_path }
       %i.fa.fa-beer.fa-2x.fa-fw>
       Beers
   %li
     %a#links.green-text.text-lighten-2{:href => "#"}
       %i.fa.fa-cog.fa-2x.fa-fw>
       Settings
-  %li
-    %a#links.yellow-text.text-lighten-2{:href => "#"}
-      %i.fa.fa-graduation-cap.fa-2x.fa-fw>
-      Education
   %li
     = link_to '<i class="fa fa-code fa-2x fa-fw"></i> Log out'.html_safe, destroy_user_session_path, method: :delete, :class => 'links.pink-text.text-lighten-2'

@@ -1,28 +1,56 @@
 html,
 body,
 main {
+  font-family: "Roboto";
+  font-size: 16px;
   height: 100%;
-}
-
-body {
-  background: image-url("background.png");
-
 }
 
 #card-alert button {
   background: none;
   border: none;
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  font-size: 20px;
   color: #fff;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.align-text {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.card-title {
+  font-size: 48px;
+  margin: 15px 0;
+}
+
+.layout-background {
+  background: image-url("background.png");
 }
 
 .layout-padding {
   padding-left: 250px;
 }
 
+.page-layout {
+  background-position: center center;
+  background-size: cover;
+  min-height: 100%;
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.page-title {
+  margin: 0;
+}
+
+.separator {
+  margin: 0 0 30px 0;
+}
 
 @media only screen and (max-width: 992px) {
   .layout-padding {

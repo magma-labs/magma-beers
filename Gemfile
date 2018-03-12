@@ -19,6 +19,7 @@ gem 'paperclip'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'gravtastic'
 gem 'aws-sdk'
+gem 'brewery_db'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
@@ -55,6 +56,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem "factory_bot_rails", "~> 4.0"
   gem 'ffaker'
+  gem 'rails-controller-testing'
 end
 
 group :test do
