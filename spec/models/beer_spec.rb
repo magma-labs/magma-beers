@@ -10,11 +10,11 @@ RSpec.describe Beer, type: :model do
   it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
 
   describe "Basic model properties" do
-	  it { should respond_to(:name) }
-	  it { should respond_to(:description) }
-	  it { should respond_to(:status) }
-	  it { should respond_to(:abv) }
-	  it { should respond_to(:ibu) }
+    it { should respond_to(:name) }
+    it { should respond_to(:description) }
+    it { should respond_to(:status) }
+    it { should respond_to(:abv) }
+    it { should respond_to(:ibu) }
 	end
 
 end
