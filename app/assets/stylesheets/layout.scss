@@ -1,19 +1,19 @@
 html,
 body,
 main {
-  height: 100%;
-  font-size: 16px;
   font-family: "Roboto";
+  font-size: 16px;
+  height: 100%;
 }
 
 #card-alert button {
   background: none;
   border: none;
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  font-size: 20px;
   color: #fff;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
 }
 
 .align-text {
@@ -22,10 +22,9 @@ main {
   vertical-align: top;
 }
 
-
 .card-title {
-  margin: 15px 0;
   font-size: 48px;
+  margin: 15px 0;
 }
 
 .layout-background {
@@ -37,12 +36,12 @@ main {
 }
 
 .page-layout {
+  background-position: center center;
+  background-size: cover;
+  min-height: 100%;
   padding-top: 20px;
   position: relative;
   width: 100%;
-  min-height: 100%;
-  background-size: cover;
-  background-position: center center;
 }
 
 .page-title {

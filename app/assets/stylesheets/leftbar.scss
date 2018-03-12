@@ -10,26 +10,26 @@
 
 .go a:before,
 .go a:after {
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
   display: inline-block;
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s;
 }
 
 .go a:before {
-  margin-right: 10px;
-  content: '[';
-  -webkit-transform: translate(20px);
   -moz-transform: translate(20px);
+  -webkit-transform: translate(20px);
+  content: '[';
+  margin-right: 10px;
   transform: translate(20px);
 }
 
 .go a:after {
-  margin-left: 10px;
-  content: ']';
-  -webkit-transform: translate(-20px);
   -moz-transform: translate(-20px);
+  -webkit-transform: translate(-20px);
+  content: ']';
+  margin-left: 10px;
   transform: translate(-20px);
 }
 
@@ -37,9 +37,9 @@
 .go a:hover:after,
 .go a:focus:before,
 .go a:focus:after {
-  opacity: 1;
-  -webkit-transform: translate(0px);
   -moz-transform: translate(0px);
+  -webkit-transform: translate(0px);
+  opacity: 1;
   transform: translate(0px);
 }
 
