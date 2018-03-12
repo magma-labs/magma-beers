@@ -20,6 +20,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'gravtastic'
 gem 'aws-sdk'
 gem 'brewery_db'
+gem 'kaminari'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
