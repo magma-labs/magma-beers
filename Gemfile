@@ -8,20 +8,21 @@ git_source(:github) do |repo_name|
 end
 
 gem 'administrate'
+gem 'aws-sdk'
+gem 'aws-sdk-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails'
+gem 'gravtastic'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'materialize-sass', '~> 1.0.0.alpha4'
 gem 'paperclip'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem 'gravtastic'
-gem 'aws-sdk'
 gem 'brewery_db'
 gem 'kaminari'
-gem 'aws-sdk-rails'
 
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'premailer-rails'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
 gem 'sass-rails', '~> 5.0'
@@ -30,7 +31,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
-gem 'premailer-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,10 +52,10 @@ gem 'sidekiq-scheduler'
 gem 'dotenv-rails'
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'pry-nav'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -69,14 +69,14 @@ end
 group :test do
   gem 'capybara', '~> 2.13'
   gem 'capybara-webkit'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
+  gem 'factory_bot_rails', '~> 4.0'
   gem 'ffaker'
   gem 'rspec-rails'
   gem 'rspec-sidekiq'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-  gem 'factory_bot_rails', '~> 4.0'
-  gem "chromedriver-helper"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -7,7 +7,9 @@ class WeeklyReminder
 
   def perform
     User.find_each do |user|
-      UserMailer.weekly_mail(user).deliver
+      if user.email != 'admin.test.com'
+        UserMailer.weekly_mail(user).deliver
+      end
     end
   end
 
