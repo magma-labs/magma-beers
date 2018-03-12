@@ -5,10 +5,8 @@
     .col.s3.m3.l4.right-align
       = link_to new_beer_path, class: "btn btn-large waves-effect waves-light" do
         Add beer
-
   %br/
   %br/
-
   .row
     = form_tag(beers_path, method: :get) do
       .input-field.col.s10.m10
@@ -18,9 +16,7 @@
         %button.btn.waves-effect{:name => "action", :type => "submit"}
           .hide-on-small-only Search
           %i.material-icons.show-on-small-only  search
-
   %br/
-
   %table.bordered
     %tbody
     - if @beers.each do |item|
@@ -46,6 +42,3 @@
       .flow-text.red-text.text-darken-3.center
         %i.fa.fa-beer
         Oh sorry, We don't have that special beer.
-
-
-
