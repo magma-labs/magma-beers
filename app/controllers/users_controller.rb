@@ -23,12 +23,6 @@ class UsersController < ApplicationController
     redirect_to user_root_path
   end
 
-  def destroy
-    sign_out user
-    user.destroy
-    redirect_to user_root_path
-  end
-
   private
 
   def user
@@ -52,6 +46,7 @@ class UsersController < ApplicationController
     )
   end
 
+<<<<<<< HEAD
   def exist_any_password_argument?
     password_params.to_h.any? { |k, v| !v.empty? and !v.nil? }
   end
