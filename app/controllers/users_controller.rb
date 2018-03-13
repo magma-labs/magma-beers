@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     )
   end
 
-<<<<<<< HEAD
   def exist_any_password_argument?
     password_params.to_h.any? { |k, v| !v.empty? and !v.nil? }
   end
