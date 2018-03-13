@@ -4,7 +4,8 @@ class BeersController < ApplicationController
 
   def index
     @beers = if params[:search]
-      Beer.where('name LIKE ?', "%#{params[:search]}%").order(:name).page(params[:page])
+      Beer.where('lower(name) LIKE ?', "%#{params[:search].downcase}%")
+        .order(:name).page(params[:page])
     else
       Beer.order(:name).page(params[:page])
     end
