@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    if is_password_data_error
+    if is_password_data_error?
       message = { alert: get_password_error_message }
     else
-      message = is_password_present ? update_with_pass : update_without_pass
+      message = is_password_present? ? update_with_pass : update_without_pass
     end
 
     redirect_to edit_user_url, flash: message
@@ -46,38 +46,38 @@ class UsersController < ApplicationController
     )
   end
 
-  def exist_pass_arg
+  def exist_any_password_argument?
     password_params.to_h.any? { |k, v| !v.empty? and !v.nil? }
   end
 
-  def empty_pass_arg
+  def exist_empty_password_argumenet?
     password_params.to_h.any? { |k, v| v.empty? or v.nil? }
   end
 
-  def empty_pass_field
-    exist_pass_arg && empty_pass_arg
+  def empty_password_field?
+    exist_any_password_argument? && exist_empty_password_argumenet?
   end
 
-  def unmatch_pass_fields
-    exist_pass_arg && password_params["password"] != password_params["password_confirmation"]
+  def match_password_fields?
+    exist_any_password_argument? && password_params["password"] == password_params["password_confirmation"]
   end
 
-  def incorrect_curr_pass
-    exist_pass_arg && !user.valid_password?(password_params["current_password"])
+  def is_correct_current_password?
+    exist_any_password_argument? && !user.valid_password?(password_params["current_password"])
   end
 
-  def is_password_data_error
-    empty_pass_field or unmatch_pass_fields or incorrect_curr_pass
+  def is_password_data_error?
+    empty_password_field? or !match_password_fields? or is_correct_current_password?
   end
 
-  def is_password_present
-    exist_pass_arg && !empty_pass_arg && password_params["password"] == password_params["password_confirmation"] && user.valid_password?(password_params["current_password"])
+  def is_password_present?
+    exist_any_password_argument? && !exist_empty_password_argumenet? && password_params["password"] == password_params["password_confirmation"] && user.valid_password?(password_params["current_password"])
   end
 
   def get_password_error_message
-    if empty_pass_field
+    if empty_password_field?
       return "To update password, all password fields must be typed"
-    elsif unmatch_pass_fields
+    elsif !match_password_fields?
       return "To update password, password and password_confirmation fields must match"
     end
     "To update password, the current password field must match with the password in the database"
