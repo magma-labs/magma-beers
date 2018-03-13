@@ -22,6 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * How to run sidekiq on development
+
 in a terminal tab, run
 ```
 bundle exec sidekiq

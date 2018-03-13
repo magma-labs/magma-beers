@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'juan.negrete@magmalabs.io'
+  default from: ENV.fetch('MAILER_SENDER')
   layout 'mailer'
 end
