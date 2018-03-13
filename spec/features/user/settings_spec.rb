@@ -60,6 +60,6 @@ feature 'User settings', js: true do
     fill_in 'user_current_password', with: FFaker::InternetSE.password
     click_button 'Update'
     expect(page).to have_content("Edit Profile")
-    expect(page).to have_content("To update password, the current password filed must match with the password in the database")
+    expect(page).to have_content("To update password, the current password field must match with the password in the database")
   end
 end

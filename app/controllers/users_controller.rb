@@ -8,30 +8,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    pass_params = password_params.to_h
-    exist_pass_arg = pass_params.any? { |k, v| !v.empty? and !v.nil? }
-    empty_pass_arg = pass_params.any? { |k, v| v.empty? or v.nil? }
-
-    if exist_pass_arg and empty_pass_arg
-      redirect_to edit_user_url, alert: "To update password, all password fields must be typed"
-    elsif exist_pass_arg and !empty_pass_arg and !user.valid_password?(pass_params[:current_password])
-      redirect_to edit_user_url, alert: "To update password, the current password filed must match with the password in the database"
-    # Update user profile with password
-    elsif exist_pass_arg and !empty_pass_arg and user.valid_password?(pass_params[:current_password])
-      if user.update_attributes(user_params)
-        bypass_sign_in(@user)
-        redirect_to edit_user_url, flash: { success:  'The user profile and password have been updated correctly' }
-      else
-        render :edit, alert: user.errors.full_messages.join
-      end
-    # udpate without password if password params are not present.
+    if is_password_data_error
+      message = { alert: get_password_error_message }
     else
-      if user.update_without_password(user_params)
-        redirect_to edit_user_url, flash: { success:  'The user profile has been updated correctly.' }
-      else
-        render :edit, alert: user.errors.full_messages.join
-      end
+      message = is_password_present ? update_with_pass : update_without_pass
     end
+
+    redirect_to edit_user_url, flash: message
   end
 
   def destroy
@@ -56,7 +39,6 @@ class UsersController < ApplicationController
   end
 
   def password_params
-    # params[:user].select { |k, v| k.to_s.match(/password/) }
     params.require(:user).permit(
       :password,
       :password_confirmation,
@@ -64,4 +46,55 @@ class UsersController < ApplicationController
     )
   end
 
+  def exist_pass_arg
+    password_params.to_h.any? { |k, v| !v.empty? and !v.nil? }
+  end
+
+  def empty_pass_arg
+    password_params.to_h.any? { |k, v| v.empty? or v.nil? }
+  end
+
+  def empty_pass_field
+    exist_pass_arg && empty_pass_arg
+  end
+
+  def unmatch_pass_fields
+    exist_pass_arg && password_params["password"] != password_params["password_confirmation"]
+  end
+
+  def incorrect_curr_pass
+    exist_pass_arg && !user.valid_password?(password_params["current_password"])
+  end
+
+  def is_password_data_error
+    empty_pass_field or unmatch_pass_fields or incorrect_curr_pass
+  end
+
+  def is_password_present
+    exist_pass_arg && !empty_pass_arg && password_params["password"] == password_params["password_confirmation"] && user.valid_password?(password_params["current_password"])
+  end
+
+  def get_password_error_message
+    if empty_pass_field
+      return "To update password, all password fields must be typed"
+    elsif unmatch_pass_fields
+      return "To update password, password and password_confirmation fields must match"
+    end
+    "To update password, the current password field must match with the password in the database"
+  end
+
+  def update_with_pass
+    if user.update_attributes(user_params)
+      bypass_sign_in(@user)
+      return { success: 'The user profile and password have been updated correctly' }
+    end
+    { alert: user.errors.full_messages.join }
+  end
+
+  def update_without_pass
+    if user.update_without_password(user_params)
+      return { success: 'The user profile has been updated correctly.' }
+    end
+    { alert: user.errors.full_messages.join }
+  end
 end
