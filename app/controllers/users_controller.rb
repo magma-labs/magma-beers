@@ -54,28 +54,24 @@ class UsersController < ApplicationController
     password_params.to_h.any? { |k, v| v.empty? or v.nil? }
   end
 
-  def empty_password_field?
-    exist_any_password_argument? && exist_empty_password_argumenet?
-  end
-
   def match_password_fields?
-    exist_any_password_argument? && password_params["password"] == password_params["password_confirmation"]
+    password_params["password"] == password_params["password_confirmation"]
   end
 
   def is_correct_current_password?
-    exist_any_password_argument? && !user.valid_password?(password_params["current_password"])
+    user.valid_password?(password_params["current_password"])
   end
 
   def is_password_data_error?
-    empty_password_field? or !match_password_fields? or is_correct_current_password?
+    exist_any_password_argument? and (exist_empty_password_argumenet? or !match_password_fields? or !is_correct_current_password?)
   end
 
   def is_password_present?
-    exist_any_password_argument? && !exist_empty_password_argumenet? && password_params["password"] == password_params["password_confirmation"] && user.valid_password?(password_params["current_password"])
+    exist_any_password_argument? && !exist_empty_password_argumenet? && match_password_fields? && is_correct_current_password?
   end
 
   def get_password_error_message
-    if empty_password_field?
+    if exist_empty_password_argumenet?
       return "To update password, all password fields must be typed"
     elsif !match_password_fields?
       return "To update password, password and password_confirmation fields must match"
