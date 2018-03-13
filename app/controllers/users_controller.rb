@@ -23,12 +23,6 @@ class UsersController < ApplicationController
     redirect_to user_root_path
   end
 
-  def destroy
-    sign_out user
-    user.destroy
-    redirect_to user_root_path
-  end
-
   private
 
   def user
