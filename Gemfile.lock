@@ -930,8 +930,8 @@ PLATFORMS
 DEPENDENCIES
   administrate
   aws-sdk
-  brewery_db
   aws-sdk-rails
+  brewery_db
   byebug
   cancancan
   capybara (~> 2.13)
