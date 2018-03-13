@@ -2,7 +2,7 @@
 = form_for @user do |f|
   .row
     .input-field.col.s12
-      = f.label :email, :class => "active"
+      = f.label :email, class: "active"
       = f.email_field :email, disabled: true, autocomplete: "off"
   .row
     .input-field.col.s12
@@ -27,22 +27,16 @@
       = f.label :current_password
       = f.password_field :current_password, autocomplete: "off"
 
-  %br
-  %br
-  .row
+  .row.action-separator
     .col.s2
-      -# = f.submit :class => 'btn waves-effect waves-light'
-      = button_tag( :class => "btn waves-effect waves-light" ) do
+      = button_tag( class: "btn waves-effect waves-light" ) do
         Update
         %i.material-icons.right send
 
 - if !@user.has_role?(:admin)
-  %br
-  %br
-  %br
-  %h2 Cancel Account User
-  = form_tag({:controller => "users", :action => "destroy", :id => @user}, method: "delete") do
+  %h2.section-separator Cancel Account User
+  = form_tag({ controller: "users", action: "destroy", id: @user }, method: "delete") do
     %br
     .row
       .col.s2
-        = submit_tag("Cancel account", :class => "btn waves-effect waves-light")
+        = submit_tag("Cancel account", class: "btn waves-effect waves-light")
