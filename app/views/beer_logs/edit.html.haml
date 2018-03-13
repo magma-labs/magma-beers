@@ -1,2 +1,21 @@
-%h1 BeerLogs#edit
-%p Find me in app/views/beer_logs/edit.html.haml
+.container
+  %h2 Edit your record
+  .row
+    .col.s12
+      = form_with model: @beerlog, local: true do |form|
+        .row
+          .input-field.col.s12
+            %label.active{for: "created_at"} Date
+            =form.text_field :created_at, value: @beerlog.created_at.to_formatted_s(:long_ordinal), disabled: true
+        .row
+          .input-field.col.s12
+            %label.active Beer
+            = form.select(:beer_id, options_for_select(Beer.all.map{|s|[s.name,s.id]}, @beerlog.beer_id), id: "select-beast")
+        .row
+          .input-field.col.s4
+            %label.active{:for => "quantity"} Quantity of Beers
+            = form.number_field :quantity, value: @beerlog.quantity.to_i
+          .input-field.col.s4.right-align
+            = form.submit  class: 'btn waves-effect blue lighten-1'
+          .input-field.col.s4.right-align
+            = link_to "Delete record",beer_log_path(@beerlog), method: :delete, class: 'btn waves-effect red lighten-1', data: { confirm: 'Are you sure?' }
