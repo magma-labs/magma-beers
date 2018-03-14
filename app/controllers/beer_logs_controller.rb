@@ -10,7 +10,7 @@ class BeerLogsController < ApplicationController
     @beerlog = current_user.beer_logs.new(beer_log_params)
     if @beerlog.save
       flash[:success] =  "Created!"
-     redirect_to root_path
+     redirect_to user_root_path
     else
       flash[:alert] = @beerlog.errors.full_messages.join
       render :new
@@ -31,7 +31,7 @@ class BeerLogsController < ApplicationController
 
   def update
     if @beerlog.update_attributes(beer_log_params)
-      redirect_to root_path
+      redirect_to user_root_path
     else
       flash[:alert] = @beerlog.errors.full_messages.join
       render :edit
@@ -40,7 +40,7 @@ class BeerLogsController < ApplicationController
   def destroy
     @beerlog.destroy
     if @beerlog.destroyed?
-      redirect_to root_path
+      redirect_to user_root_path
     else
       render :edit
     end

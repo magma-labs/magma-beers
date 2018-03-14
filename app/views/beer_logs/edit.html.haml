@@ -12,7 +12,7 @@
           = form.select(:beer_id, options_for_select(Beer.all.map{|s|[s.name,s.id]}, @beerlog.beer_id), id: "select-beast")
       .row
         .input-field.col.s4
-          %label.active{:for => "quantity"} Quantity of Beers
+          %label.active{for: "quantity"} Quantity of Beers
           = form.number_field :quantity, value: @beerlog.quantity.to_i
         .input-field.col.s4.right-align
           = form.submit  class: 'btn waves-effect blue lighten-1'
