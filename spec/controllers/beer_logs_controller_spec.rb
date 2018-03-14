@@ -5,7 +5,7 @@ RSpec.describe BeerLogsController, type: :controller do
   render_views
   let(:user) { create(:user) }
   let(:beer) { create(:beer) }
-  let(:beer_log) { create(:beer_log) }
+  let(:beer_log) { create(:beer_log,user: user, beer: beer) }
   subject { beer_log }
 
   describe "GET index" do
@@ -25,7 +25,7 @@ RSpec.describe BeerLogsController, type: :controller do
   describe "GET #show" do
     it "returns http success" do
       sign_in user
-      get :show
+      get :show, params: { id: beer_log.id}
       expect(response).to have_http_status(:success)
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe BeerLogsController, type: :controller do
   describe "GET #edit" do
     it "returns http success" do
       sign_in user
-      get :edit
+      get :edit, params: { id: beer_log.id}
       expect(response).to have_http_status(:success)
     end
   end
