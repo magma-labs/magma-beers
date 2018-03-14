@@ -1,16 +1,15 @@
-.container
-  %h2
-    Add the beer you've drunk!!
-  .row
-    .col.s12
-      = form_with model: @beerlog, local: true do |form|
-        .row
-          .input-field.col.s12
-            = form.select(:beer_id, options_for_select(Beer.all.map{|s|[s.name,s.id]}),{include_blank: true}, id: "select-beast")
-            %label.active{for: "beer_id"} Beer
-        .row
-          .input-field.col.s6
-            %label{for: "quantity"} Quantity of Beers
-            = form.number_field :quantity
-          .input-field.col.s6.right-align
-            = form.submit  class: 'btn waves-effect'
+%h2
+  Add the beer you've drunk!!
+.row
+  .col.s12
+    = form_with model: @beerlog, local: true do |form|
+      .row
+        .input-field.col.s12
+          = form.select(:beer_id, options_for_select(Beer.all.map{|s|[s.name,s.id]}),{include_blank: true}, id: "select-beast")
+          %label.active{for: "beer_id"} Beer
+      .row
+        .input-field.col.s6
+          %label{for: "quantity"} Quantity of Beers
+          = form.number_field :quantity
+        .input-field.col.s6.right-align
+          = form.submit  class: 'btn waves-effect'
