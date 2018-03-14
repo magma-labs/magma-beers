@@ -11,7 +11,12 @@
 Role.create(:name => "user")
 Role.create(:name => "admin")
 
-user = User.new(:email => "admin@test.com", :password => "beersadmin", :password_confirmation => "beersadmin")
+user = User.new(
+  email: 'admin@test.com',
+  password: 'beersadmin',
+  password_confirmation: 'beersadmin',
+  confirmed_at: Time.zone.now
+)
 user.add_role :admin
 user.save
 

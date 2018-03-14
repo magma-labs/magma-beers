@@ -74,6 +74,10 @@ ActiveRecord::Schema.define(version: 20180306212114) do
     t.string "uid"
     t.string "name"
     t.string "image"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.datetime "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

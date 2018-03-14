@@ -60,7 +60,19 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "magma-beers_#{Rails.env}"
+  # amazon config
+  config.action_mailer.default_url_options = { host: 'magma-beers.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch('SES_SMTP_SERVER'),
+    port: 587,
+    user_name: ENV.fetch('SES_SMTP_USERNAME'),
+    password: ENV.fetch('SES_SMTP_PASSWORD'),
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
