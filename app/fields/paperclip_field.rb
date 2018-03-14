@@ -9,6 +9,22 @@ class PaperclipField < Administrate::Field::Base
     data.url(:thumbnail)
   end
 
+  def thumb
+    data.url(:thumb)
+  end
+
+  def small
+    data.url(:small)
+  end
+
+  def thumb
+    data.url(:thumb)
+  end
+
+  def small
+    data.url(:small)
+  end
+
   def to_s
     data
   end

@@ -11,6 +11,8 @@ class UserDashboard < Administrate::BaseDashboard
     roles: Field::HasMany,
     id: Field::Number,
     email: Field::String,
+    name: Field::String,
+    photo: PaperclipField,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
@@ -31,24 +33,17 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :roles,
+    :name,
     :email,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :photo,
+    :name,
     :email,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
-    :created_at,
-    :updated_at,
-    :roles,
+    :roles
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -56,15 +51,9 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :roles,
+    :name,
     :email,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
+    :photo
   ].freeze
 
   # Overwrite this method to customize how users are displayed
