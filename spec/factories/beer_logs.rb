@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :beer_log do
     user nil
     beer nil
-    quantity "9.99"
+    quantity FFaker::AddressUA.building_number
   end
 end
