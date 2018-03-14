@@ -34,7 +34,7 @@ RSpec.describe BeerLogsController, type: :controller do
     it "returns http success" do
       sign_in user
       get :new
-      expect(response).to have_http_status(:success)
+     expect(response).to have_http_status(:success)
     end
   end
 
