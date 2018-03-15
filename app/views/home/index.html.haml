@@ -1,9 +1,30 @@
-%ul
+.section
   - if user_signed_in?
-    %li
-      Welcome #{current_user.name} (#{link_to current_user.email, edit_user_registration_url})!
-
-    %li= link_to "Logout", destroy_user_session_path, method: :delete
-  - else
-    %li= link_to "Login", new_user_session_path
-    %li= link_to "Sign Up", new_user_registration_path
+    %h2
+      Welcome #{ current_user.name }
+    %h5.right-align
+      You have drunk #{ @beerlogs.map { |h| h[:quantity] ||= 0 }.sum.to_i } beers today!!!
+    %a.waves-effect.waves-light.btn{ href: new_beer_log_path }
+      %i.material-icons.right
+        add
+      Add Beer 
+.divider
+.section
+  %h3
+    This is your record of today
+  %ul.collection
+    - @beerlogs.each do |item|
+      .collapsible-header.grey.lighten-5
+        %li.collection-item.avatar.grey.lighten-5
+          = image_tag item.beer.photo.url(:thumb),class: "circle"
+          .row
+            .col.s6
+              %span.title
+                %b= item.beer[:name]
+              %p= item.created_at.to_formatted_s(:long_ordinal)
+            .col.s4
+              %p.beer-log-quantity
+                = item.quantity.to_i
+                beer#{ "s" if item.quantity>1 }
+            .col.s2
+              = link_to "Edit", edit_beer_log_path(item), class: "btn blue lighten-1"
