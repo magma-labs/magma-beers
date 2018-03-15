@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
     root to: 'users#index'
   end
+
+  # Handler errors
+  match "*path", to: "home#catch_404", via: :all
 end
