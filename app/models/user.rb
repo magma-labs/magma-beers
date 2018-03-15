@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_attached_file :photo,
     styles: { thumbnail: "300x300>", thumb: "150x150>", small: "20x20" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
-  has_many :beer_logs
 
   include Gravtastic
   gravtastic

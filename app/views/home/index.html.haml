@@ -1,10 +1,10 @@
 .section
   - if user_signed_in?
     %h2
-      Welcome #{current_user.name}
+      Welcome #{ current_user.name }
     %h5.right-align
-      You have drunk #{@beerlogs.map { |h| h[:quantity] ||= 0 }.sum.to_i} beers today!!!
-    %a.waves-effect.waves-light.btn{href: new_beer_log_path}
+      You have drunk #{ @beerlogs.map { |h| h[:quantity] ||= 0 }.sum.to_i } beers today!!!
+    %a.waves-effect.waves-light.btn{ href: new_beer_log_path }
       %i.material-icons.right
         add
       Add Beer 
@@ -25,6 +25,6 @@
             .col.s4
               %p.beer-log-quantity
                 = item.quantity.to_i
-                beer#{"s" if item.quantity>1}
+                beer#{ "s" if item.quantity>1 }
             .col.s2
               = link_to "Edit", edit_beer_log_path(item), class: "btn blue lighten-1"

@@ -7,7 +7,9 @@ class HomeController < ApplicationController
   end
 
   private
+
   def set_data
-    @beerlogs = BeerLog.where("user_id = ? and created_at >= ?", current_user.id,Time.zone.now.beginning_of_day).order(:id)
+    @beerlogs = BeerLog.where("user_id = ? and created_at >= ?",
+      current_user.id,Time.zone.now.beginning_of_day).order(:id)
   end
 end
