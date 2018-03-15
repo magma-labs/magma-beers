@@ -7,22 +7,22 @@
         = current_user.name ||= current_user.email
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4
   #profilepic
-    %img.circle.responsive-img{:alt => "", :src => (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
+    %img.circle.responsive-img{ src: (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
     .profile-name
       = current_user.name ||= current_user.email
   %li
     = link_to '<i class="fa fa-home fa-2x fa-fw"></i> <span>Home</span>'.html_safe,
-      user_root_path, :class => 'grey-text darken-3'
+      user_root_path, class: 'grey-text darken-3'
   %li
     = link_to '<i class="fa fa-beer fa-2x fa-fw"></i> <span>Beers</span>'.html_safe,
-      beers_path, :class => 'grey-text darken-3'
+      beers_path, class: 'grey-text darken-3'
   %li
     = link_to '<i class="fa fa-cog fa-2x fa-fw"></i> <span>Settings</span>'.html_safe,
-      edit_user_path(current_user), :class => 'grey-text darken-3'
+      edit_user_path(current_user), class: 'grey-text darken-3'
   - if current_user.has_role?(:admin)
     %li
       = link_to '<i class="fa fa-lock fa-2x fa-fw"></i> <span>Admin</span>'.html_safe,
-      admin_users_path, :class => 'grey-text darken-3'
+      admin_users_path, class: 'grey-text darken-3'
   %li
     = link_to '<i class="fa fa-sign-out fa-2x fa-fw"></i> <span>Log out</span>'.html_safe,
-      destroy_user_session_path, method: :delete, :class => 'grey-text darken-3'
+      destroy_user_session_path, method: :delete, class: 'grey-text darken-3'
