@@ -80,6 +80,9 @@
     },
     "MAILER_SENDER": {
       "required": true
+    },
+    "REDIS_URL": {
+      "required": true
     }
   },
   "formation": {
