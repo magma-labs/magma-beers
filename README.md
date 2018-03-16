@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/magma-labs/magma-beers.svg?branch=master)](https://travis-ci.org/magma-labs/magma-beers)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
