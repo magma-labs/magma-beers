@@ -1,6 +1,7 @@
 {
   "name": "magma-beers",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "AWS_REGION": {
