@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/magma-labs/magma-beers.svg?branch=11.0)](https://travis-ci.org/magma-labs/magma-beers)
+[![Build Status](https://travis-ci.org/magma-labs/magma-beers.svg?branch=master)](https://travis-ci.org/magma-labs/magma-beers)
 
 # README
 
