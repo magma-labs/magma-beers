@@ -81,7 +81,10 @@
     "MAILER_SENDER": {
       "required": true
     },
-    "REDIS_URL": {
+    "REDISTOGO_URL": {
+      "required": true
+    },
+    "REDIS_PROVIDER": {
       "required": true
     }
   },
