@@ -94,9 +94,8 @@
     }
   },
   "addons": [
-    "mailgun",
     "heroku-postgresql",
-    "heroku-redis"
+    "redistogo"
   ],
   "buildpacks": [
     {
