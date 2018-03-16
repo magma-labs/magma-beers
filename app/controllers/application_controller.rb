@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
       user_root_path
     end
   end
+
+  rescue_from ActionController::RoutingError do |exception|
+    logger.error 'Routing error ocurred'
+    logger.error exception.message
+    render file: "#{Rails.root}/public/404", status: :not_found
+  end
 end

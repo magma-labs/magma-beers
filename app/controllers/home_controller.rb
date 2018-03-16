@@ -6,6 +6,10 @@ class HomeController < ApplicationController
     @beerlog = BeerLog.new
   end
 
+  def catch_404
+    raise ActionController::RoutingError.new(params[:path])
+  end
+
   private
 
   def set_data
