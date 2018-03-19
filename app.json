@@ -58,6 +58,9 @@
     "SES_SMTP_USERNAME": {
       "required": true
     },
+    "MAIL_DEFAULT_ADMIN": {
+      "required": true
+    },
     "MAILER_SENDER": {
       "required": true
     },
