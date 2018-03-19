@@ -22,7 +22,7 @@ class BeerLogsController < ApplicationController
   end
 
   def index
-    @beerlogs = BeerLog.all
+    @beerlogs = BeerLog.all.group_by(&:log_date)
   end
 
   def edit
@@ -52,7 +52,7 @@ class BeerLogsController < ApplicationController
   private
 
   def beer_log_params
-    params.require(:beer_log).permit(:beer_id, :quantity)
+    params.require(:beer_log).permit(:beer_id, :quantity, :log_date)
   end
 
   def set_beer_log

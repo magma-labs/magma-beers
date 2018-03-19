@@ -7,12 +7,16 @@
         = current_user.name ||= current_user.email
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4
   #profilepic
-    %img.circle.responsive-img{ src: (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
+    -# %img.circle.responsive-img{ src: (current_user.image ||= current_user.gravatar_url) + "?type=large", :width => "150", :height => "150" }/
+    = image_tag current_user.photo.url(:thumb) || current_user.image, size: "150x150", class: 'circle responsive-img', onerror: "this.onerror=null;this.src='" + current_user.gravatar_url + "?type=large';"
     .profile-name
       = current_user.name ||= current_user.email
   %li
     = link_to '<i class="fa fa-home fa-2x fa-fw"></i> <span>Home</span>'.html_safe,
       user_root_path, class: 'grey-text darken-3'
+  %li
+    = link_to '<i class="fa fa-calendar fa-2x fa-fw"></i> <span>Log History</span>'.html_safe,
+      beer_logs_path, class: 'grey-text darken-3'
   %li
     = link_to '<i class="fa fa-beer fa-2x fa-fw"></i> <span>Beers</span>'.html_safe,
       beers_path, class: 'grey-text darken-3'

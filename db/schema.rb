@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309175517) do
+ActiveRecord::Schema.define(version: 20180317000313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 20180309175517) do
     t.decimal "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "log_date"
     t.index ["beer_id"], name: "index_beer_logs_on_beer_id"
+    t.index ["log_date"], name: "index_beer_logs_on_log_date"
     t.index ["user_id"], name: "index_beer_logs_on_user_id"
   end
 
@@ -84,14 +86,14 @@ ActiveRecord::Schema.define(version: 20180309175517) do
     t.string "uid"
     t.string "name"
     t.string "image"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "unconfirmed_email"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.datetime "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

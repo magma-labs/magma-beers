@@ -3,6 +3,7 @@
 .row
   .col.s12
     = form_with model: @beerlog, local: true do |form|
+      = form.hidden_field :log_date
       .row
         .input-field.col.s12
           = form.select(:beer_id, options_for_select(Beer.all.map{ |s|[s.name,s.id] }),{ include_blank: true }, id: "select-beast")
