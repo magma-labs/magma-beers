@@ -1,6 +1,7 @@
 {
   "name": "magma-beers",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate & bundle exec rails db:seed"
   },
   "env": {
     "AWS_REGION": {
@@ -30,27 +31,6 @@
     "LANG": {
       "required": true
     },
-    "MAILGUN_API_KEY": {
-      "required": true
-    },
-    "MAILGUN_DOMAIN": {
-      "required": true
-    },
-    "MAILGUN_PUBLIC_KEY": {
-      "required": true
-    },
-    "MAILGUN_SMTP_LOGIN": {
-      "required": true
-    },
-    "MAILGUN_SMTP_PASSWORD": {
-      "required": true
-    },
-    "MAILGUN_SMTP_PORT": {
-      "required": true
-    },
-    "MAILGUN_SMTP_SERVER": {
-      "required": true
-    },
     "RACK_ENV": {
       "required": true
     },
@@ -78,7 +58,16 @@
     "SES_SMTP_USERNAME": {
       "required": true
     },
+    "MAIL_DEFAULT_ADMIN": {
+      "required": true
+    },
     "MAILER_SENDER": {
+      "required": true
+    },
+    "REDISTOGO_URL": {
+      "required": true
+    },
+    "REDIS_PROVIDER": {
       "required": true
     }
   },
@@ -91,8 +80,8 @@
     }
   },
   "addons": [
-    "mailgun",
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "redistogo"
   ],
   "buildpacks": [
     {

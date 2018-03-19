@@ -7,7 +7,7 @@ class WeeklyReminder
 
   def perform
     User.find_each do |user|
-      if user.email != 'admin.test.com'
+      if user.email != ENV.fetch('MAIL_DEFAULT_ADMIN')
         UserMailer.weekly_mail(user).deliver
       end
     end
