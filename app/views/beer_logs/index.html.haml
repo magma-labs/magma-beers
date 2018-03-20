@@ -3,21 +3,18 @@
     %h1 Log History
   - if @beerlogs.each do |dt, items|
     .log-header-date
-      %span
-        = dt
+      %span= dt
     - items.each do |item|
       .log-entry
         .log-entry-image
           = image_tag item.beer.photo.url(:thumb) || "noimage.jpg", class: 'circle responsive-img beer-image', size: '50x50'
-        %span{ class: 'log-entry-name' }
-          = item.beer.name
-        %span{ class: 'log-entry-qty' }
-          = item.quantity.to_i
+        %span{ class: 'log-entry-name' }= item.beer.name
+        %span{ class: 'log-entry-qty' }= item.quantity.to_i
     .log-dt-tot
       %span total:
-      %span
-        = items.map { |i| i[:quantity] ||= 0 }.sum.to_i
+      %span= items.map { |i| i[:quantity] ||= 0 }.sum.to_i
   - end.empty?
     .flow-text.red-text.text-darken-3.center
       %i.fa.fa-beer
         Oh sorry, we don't have logs for show you.
+  = paginate @pagination
