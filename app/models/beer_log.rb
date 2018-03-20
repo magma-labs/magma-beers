@@ -5,4 +5,5 @@ class BeerLog < ApplicationRecord
   belongs_to :beer
 
   scope :by_user, ->(user) { where(user_id: user) }
+  scope :by_beer, ->(beer) { where(beer_id: beer) }
 end

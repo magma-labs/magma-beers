@@ -22,7 +22,13 @@ class BeerLogsController < ApplicationController
   end
 
   def index
-    @pagination = BeerLog.by_user(current_user).all.page(params[:page])
+    @pagination = if params[:search]
+        beer = Beer.by_name(params[:search])
+        BeerLog.by_user(current_user).by_beer(beer).page(params[:page])
+      else
+        BeerLog.by_user(current_user).page(params[:page])
+      end
+
     @beerlogs = @pagination.group_by(&:log_date)
   end
 
