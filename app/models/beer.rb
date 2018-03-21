@@ -5,7 +5,7 @@ class Beer < ApplicationRecord
 
   resourcify
 
-  scope :by_name, -> (beer_name) { where('lower(name) LIKE ?', "%#{beer_name.downcase}") }
+  scope :by_name, -> (beer_name) { where('lower(name) LIKE ?', "%#{beer_name.downcase}%") }
 
   validates_uniqueness_of :name
   validates_presence_of :name
