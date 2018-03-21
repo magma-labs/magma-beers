@@ -29,7 +29,7 @@ class BeerLogsController < ApplicationController
         BeerLog.by_user(current_user).page(params[:page])
       end
 
-    @beerlogs = @pagination.group_by(&:log_date)
+    @beerlogs = @pagination.group_by { |b| b.created_at.in_time_zone.to_date }
   end
 
   def edit
@@ -59,7 +59,7 @@ class BeerLogsController < ApplicationController
   private
 
   def beer_log_params
-    params.require(:beer_log).permit(:beer_id, :quantity, :log_date)
+    params.require(:beer_log).permit(:beer_id, :quantity)
   end
 
   def set_beer_log

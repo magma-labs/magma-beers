@@ -11,7 +11,7 @@
           %i.material-icons.show-on-small-only search
   - if @beerlogs.each do |dt, items|
     .log-header-date
-      %span= dt
+      %span= dt.to_formatted_s(:long_ordinal)
     - items.each do |item|
       .log-entry
         .log-entry-image

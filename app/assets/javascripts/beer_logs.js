@@ -4,6 +4,4 @@ $(document).on('turbolinks:load', () => {
     sortField: 'text',
     maxOptions: 10
   });
-
-  $("input[name='beer_log[log_date]']").val(new Date());
 });
