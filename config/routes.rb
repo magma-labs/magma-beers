@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
+  get 'contact-us', to: 'contact#new', as: 'new_contact'
+  post 'contact-us', to: 'contact#create', as: 'create_contact'
+
+
   # Handler errors
   match "*path", to: "home#catch_404", via: :all
 end

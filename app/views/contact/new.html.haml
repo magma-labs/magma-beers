@@ -1,0 +1,9 @@
+= form_for @contact, url: create_contact_url do |f|
+  = notice
+  = @contact.errors.full_messages.join(', ')
+
+  = f.text_field :name, placeholder: 'name'
+  = f.email_field :email, placeholder: 'email'
+  = f.text_area :body, placeholder: 'body'
+  = f.submit 'Send'
+end
