@@ -23,13 +23,13 @@ class BeerLogsController < ApplicationController
 
   def index
     @pagination = if params[:search]
-        beer = Beer.by_name(params[:search])
-        BeerLog.by_user(current_user).by_beer(beer).page(params[:page])
-      else
-        BeerLog.by_user(current_user).page(params[:page])
-      end
+                    beer = Beer.by_name(params[:search])
+                    BeerLog.group_by_beer.by_beer(beer)
+                  else
+                    BeerLog.group_by_beer
+                  end.includes(:beer).by_user(current_user).page(params[:page])
 
-    @beerlogs = @pagination.group_by { |b| b.created_at.in_time_zone.to_date }
+    @beerlogs = @pagination.group_by(&:created_at)
   end
 
   def edit
