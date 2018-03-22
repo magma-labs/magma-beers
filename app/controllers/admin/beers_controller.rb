@@ -19,5 +19,8 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+    def sync_catalog
+    end
   end
 end
