@@ -14,6 +14,6 @@ class HomeController < ApplicationController
 
   def set_data
     @beerlogs = BeerLog.where("user_id = ? and created_at >= ?",
-      current_user.id,Time.zone.now.beginning_of_day).order(:id)
+      current_user.id,Time.zone.now.beginning_of_day).order(:created_at, :id)
   end
 end

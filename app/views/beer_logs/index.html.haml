@@ -1,0 +1,28 @@
+.page-layout
+  .valign-wrapper.log-title
+    %h1 Log History
+  = form_tag(beer_logs_path, method: :get) do
+    .row
+      .imput-field.col.s10.m10
+        = text_field_tag :search, params[:search], placeholder: "Search by beer name", autocomplete: "off"
+      .input-field.col.s2.m2
+        %button.btn.waves-effect{ name: "action", type: "submit" }
+          .hide-on-small-only Search
+          %i.material-icons.show-on-small-only search
+  - if @beerlogs.each do |dt, items|
+    .log-header-date
+      %span= dt.to_formatted_s(:long_ordinal)
+    - items.each do |item|
+      .log-entry
+        .log-entry-image
+          = image_tag item.beer.photo.url(:thumb) || "noimage.jpg", class: 'circle responsive-img beer-image', size: '50x50'
+        %span{ class: 'log-entry-name' }= item.beer.name
+        %span{ class: 'log-entry-qty' }= item.quantity.to_i
+    .log-dt-tot
+      %span total:
+      %span= items.map { |i| i[:quantity] ||= 0 }.sum.to_i
+  - end.empty?
+    .flow-text.red-text.text-darken-3.center
+      %i.fa.fa-beer
+        Oh sorry, we don't have logs to show you.
+  = paginate @pagination

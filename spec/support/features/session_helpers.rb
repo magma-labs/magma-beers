@@ -10,7 +10,6 @@ module Features
     def sign_in_with(email, password)
       visit new_user_session_path
       expect(page).to have_content("Log in")
-      sleep 3
 
       fill_in 'user_email', with: email
       fill_in 'user_password', with: password
@@ -20,7 +19,6 @@ module Features
     def sign_in_action(user)
       visit new_user_session_path
       expect(page).to have_content("Log in")
-      sleep 3
 
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
