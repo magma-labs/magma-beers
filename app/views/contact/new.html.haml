@@ -1,7 +1,5 @@
 %h1 Contact Us
 = form_for @contact, url: create_contact_url do |f|
-  = notice
-  = @contact.errors.full_messages.join(', ')
   .row
     .input-field.col.s12
       = f.label :name

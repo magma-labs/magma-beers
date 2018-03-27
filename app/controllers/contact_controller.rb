@@ -12,6 +12,7 @@ class ContactController < ApplicationController
       ContactMailer.contact_us(@contact).deliver_now
       redirect_to new_contact_url, notice: 'Message received, thanks!'
     else
+      flash[:alert] = @contact.errors.full_messages.join(', ')
       render :new
     end
   end
