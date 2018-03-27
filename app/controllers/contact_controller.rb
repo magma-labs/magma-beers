@@ -10,7 +10,7 @@ class ContactController < ApplicationController
 
     if @contact.valid?
       ContactMailer.contact_us(@contact).deliver_now
-      redirect_to new_contact_url, notice: 'Message received, thanks!'
+      redirect_to new_contact_url, notice: 'The message has been sent, thanks!'
     else
       flash[:alert] = @contact.errors.full_messages.join(', ')
       render :new

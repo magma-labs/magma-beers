@@ -31,6 +31,6 @@ describe 'submit the contact form', type: :feature do
 
     expect(page.current_url).to eq(new_contact_url)
 
-    expect(page).to have_no_content('Message received, thanks!')
+    expect(page).to have_no_content('The message has been sent, thanks!')
   end
 end
