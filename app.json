@@ -64,6 +64,9 @@
     "MAILER_SENDER": {
       "required": true
     },
+    "MAILER_RECEIVER": {
+      "required": true
+    },
     "REDISTOGO_URL": {
       "required": true
     },
