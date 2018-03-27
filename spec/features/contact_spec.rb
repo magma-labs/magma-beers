@@ -21,12 +21,10 @@ describe 'submit the contact form', type: :feature do
     page.driver.post(
       create_contact_path,
       {
-        params: {
-          contact: {
-            name: 'Juan Perez',
-            email: 'perez@example.org',
-            body: 'hai'
-          }
+        contact: {
+          name: 'Juan Perez',
+          email: 'perez@example.org',
+          body: 'hai'
         }
       }
     )

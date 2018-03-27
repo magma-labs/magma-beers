@@ -1,9 +1,17 @@
+%h1 Contact Us
 = form_for @contact, url: create_contact_url do |f|
   = notice
   = @contact.errors.full_messages.join(', ')
-
-  = f.text_field :name, placeholder: 'name'
-  = f.email_field :email, placeholder: 'email'
-  = f.text_area :body, placeholder: 'body'
-  = f.submit 'Send'
-end
+  .row
+    .input-field.col.s12
+      = f.label :name
+      = f.text_field :name
+  .row
+    .input-field.col.s12
+      = f.label :email
+      = f.email_field :email
+  .row
+    .input-field.col.s12
+      = f.label :body
+      = f.text_area :body
+  = submit_tag('Send', class: 'btn waves-effect waves-light')
