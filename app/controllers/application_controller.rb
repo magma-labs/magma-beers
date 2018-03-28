@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
 
   def get_user_avatar
     if current_user
-      @usr_avatar = ((current_user.photo && !current_user.photo.url.match('missing')) && current_user.photo.url(:thumb) || current_user.image)
+      @usr_avatar = (
+        (current_user.photo && !current_user.photo.url.match('missing')) &&
+        current_user.photo.url(:thumb) ||
+        current_user.image + "?type=large")
       @usr_avatar = @usr_avatar && @usr_avatar || current_user.photo.url(:thumb)
     end
   end
