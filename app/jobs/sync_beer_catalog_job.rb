@@ -15,7 +15,8 @@ class SyncBeerCatalogJob
     @beers = []
 
     @available = brewery_db.menu.beer_availability || []
-    @available_ids =  @available.take(@available.size).select { |a| a['id'] >= @current_available }.map { |a| a['id'] }
+    @available_ids =  @available.take(@available.size)
+      .select { |a| a['id'] >= @current_available }.map { |a| a['id'] }
     sync_catalog
   end
 
@@ -93,7 +94,6 @@ class SyncBeerCatalogJob
   end
 
   def save_beers
-    binding.pry
     Beer.create(@beers)
   end
 
