@@ -13,8 +13,8 @@ class BeerDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     photo: PaperclipField,
-    abv: Field::Number.with_options(suffix: "%"),
-    ibu: Field::Number.with_options(suffix: "%")
+    abv: Field::Number,
+    ibu: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES

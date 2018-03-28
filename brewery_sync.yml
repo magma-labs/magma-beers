@@ -1,0 +1,5 @@
+---
+beers:
+  state: 0
+  available_id: 0
+  page: 0

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309175517) do
+ActiveRecord::Schema.define(version: 20180327185717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20180309175517) do
     t.integer "ibu"
     t.boolean "status"
     t.integer "year"
+    t.string "style"
+    t.integer "api_id"
+    t.string "photo_remote_url"
   end
 
   create_table "identities", force: :cascade do |t|

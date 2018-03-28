@@ -13,3 +13,7 @@
 weekly_reminder:
   cron: '0 5 * * 1'
   class: WeeklyReminder
+
+sync_beer_catalog:
+  cron: '0 0 * * *'
+  class: SyncBeerCatalogJob
