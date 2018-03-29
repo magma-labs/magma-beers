@@ -13,7 +13,9 @@ module Users
           sign_up(resource_name, resource)
           respond_with resource, location: after_sign_up_path_for(resource)
         else
-          flash[:notice] = I18n.t('devise.registrations.signed_up_but_unconfirmed')
+          flash[:notice] = I18n.t(
+            'devise.registrations.signed_up_but_unconfirmed'
+          )
           expire_data_after_sign_in!
           redirect_to new_user_session_path
         end
