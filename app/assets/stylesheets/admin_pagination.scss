@@ -1,0 +1,54 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+ul.pagination {
+	padding-left: 0;
+	list-style-type: none;
+
+	li {
+		display: inline-block;
+		font-size: 1.2rem;
+		line-height: 30px;
+		text-align: center;
+		padding: 0px 10px;
+		border-radius: 2px;
+		vertical-align: top;
+		height: 30px;
+		list-style-type: none;
+
+		a {
+			color: rgb(68, 68, 68);
+			display: inline-block;
+			font-size: 1.2rem;
+			padding: 0 10px;
+			line-height: 30px;
+			text-decoration: none;
+		}
+	}
+
+	li.active {
+		background-color: rgb(238, 110, 115);
+		a {
+			color: rgb(255, 255, 255);
+		}
+	}
+
+	li.disabled {
+		a {
+			cursor: default;
+			color: rgb(153, 153, 153);
+		}
+	}
+
+	.waves-effect {
+		position: relative;
+    cursor: pointer;
+		display: inline-block;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		vertical-align: middle;
+		z-index: 1;
+		will-change: opacity, transform;
+		overflow: hidden;
+		transition: all 0.3s ease-out;
+	}
+}
