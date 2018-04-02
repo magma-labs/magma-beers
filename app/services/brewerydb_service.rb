@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'httparty'
 require 'httplog'
 class BrewerydbService
   include HTTParty
-  base_uri 'api.brewerydb.com'
+  base_uri ENV.fetch('BREWERYDB_APIURL')
 
   def initialize(available_id, page)
     @options = {
