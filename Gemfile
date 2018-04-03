@@ -52,16 +52,13 @@ gem 'sidekiq-scheduler'
 gem 'dotenv-rails'
 
 gem 'httparty'
+gem 'httplog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-nav'
   gem 'pry-rails'
-end
-
-group :development, :production do
-  gem 'httplog'
 end
 
 group :development do
