@@ -35,6 +35,6 @@ class User < ApplicationRecord
   def count_beers_by_week
     beer_logs.where(
       created_at: (Time.now.midnight - 1.week)..Time.now
-    ).sum('quantity')
+    ).sum('quantity').to_i
   end
 end
