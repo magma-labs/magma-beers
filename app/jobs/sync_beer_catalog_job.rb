@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq-scheduler'
 
 class SyncBeerCatalogJob
@@ -15,7 +17,7 @@ class SyncBeerCatalogJob
     @beers = []
 
     @available = brewery_db.menu.beer_availability || []
-    @available_ids =  @available.take(@available.size)
+    @available_ids = @available.take(@available.size)
       .select { |a| a['id'] >= @current_available }.map { |a| a['id'] }
     sync_catalog
   end
@@ -25,8 +27,8 @@ class SyncBeerCatalogJob
   def sync_catalog
     status = {
       state: @current_state,
-      in_last_available: is_last_available?,
-      in_last_page: is_last_page?
+      in_last_available: last_available?,
+      in_last_page: last_page?
     }
     send(state_actions[status])
   end
@@ -120,7 +122,7 @@ class SyncBeerCatalogJob
   end
 
   def state_actions
-    @state_action ||= {
+    @state_actions ||= {
       { state: 0, in_last_available: false, in_last_page: false } => 'init_parameters',
       { state: 1, in_last_available: false, in_last_page: false } => 'nex_page',
       { state: 1, in_last_available: false, in_last_page: true } => 'next_available',
@@ -129,11 +131,11 @@ class SyncBeerCatalogJob
     }
   end
 
-  def is_last_available?
+  def last_available?
     @available_ids.last == @current_available
   end
 
-  def is_last_page?
+  def last_page?
     @current_state != 0 && @current_page == @total_pages
   end
 end

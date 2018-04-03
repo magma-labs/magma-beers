@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     email FFaker::Internet.email
@@ -20,6 +22,5 @@ FactoryBot.define do
     after(:build) do |user|
       user.confirmed_at = Time.zone.now
     end
-
   end
 end
