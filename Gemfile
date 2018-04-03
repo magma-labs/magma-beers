@@ -60,8 +60,11 @@ group :development, :test do
   gem 'pry-rails'
 end
 
-group :development do
+group :development, :production do
   gem 'httplog'
+end
+
+group :development do
   gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
