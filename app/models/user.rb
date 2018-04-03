@@ -24,10 +24,17 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
+      user.skip_confirmation!
     end
   end
 
   def assign_role
     add_role(:user)
+  end
+
+  def count_beers_by_week
+    beer_logs.where(
+      created_at: (Time.now.midnight - 1.week)..Time.now
+    ).sum('quantity')
   end
 end
