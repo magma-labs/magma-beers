@@ -61,7 +61,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'httplog'
   gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
