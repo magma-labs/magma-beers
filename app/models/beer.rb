@@ -11,11 +11,19 @@ class Beer < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :description
 
+  after_create :download_image_from_url
+
   def self.search(search)
     if search
       find(:all, :conditions => ['lower(name) ILIKE ?', "%#{search.downcase}%"])
     else
       find(:all)
+    end
+  end
+
+  def download_image_from_url
+    if photo.url.match("noimage") && photo_remote_url.present?
+      ::ImageDownloaderJob.perform_async(self.id)
     end
   end
 end

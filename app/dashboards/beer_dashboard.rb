@@ -13,6 +13,8 @@ class BeerDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     photo: PaperclipField,
+    abv: Field::Number,
+    ibu: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,8 +34,8 @@ class BeerDashboard < Administrate::BaseDashboard
     :photo,
     :name,
     :description,
-    :created_at,
-    :updated_at,
+    :abv,
+    :ibu
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -43,6 +45,8 @@ class BeerDashboard < Administrate::BaseDashboard
     :photo,
     :name,
     :description,
+    :abv,
+    :ibu
   ].freeze
 
   # Overwrite this method to customize how beers are displayed

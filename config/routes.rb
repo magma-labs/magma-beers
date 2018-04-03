@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :identities
     resources :beers
 
+    get '/sync_beers', to: 'beers#sync_catalog', as: :sync_beers
+
     root to: 'users#index'
   end
 
