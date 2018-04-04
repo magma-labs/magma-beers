@@ -2,8 +2,8 @@
 ](https://travis-ci.org/magma-labs/magma-beers)
 [![Code Climate](https://codeclimate.com/github/magma-labs/magma-beers.svg)
 ](https://codeclimate.com/github/magma-labs/magma-beers)
-[![Coverage Status](https://coveralls.io/repos/magma-labs/magma-beers/badge.png?branch=master)
-](https://coveralls.io/r/magma-labs/magma-beers?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/magma-labs/magma-beers/badge.svg?branch=master)
+](https://coveralls.io/github/magma-labs/magma-beers?branch=master)
 [![Inline docs](http://inch-ci.org/github/magma-labs/magma-beers.svg)
 ](http://inch-ci.org/github/magma-labs/magma-beers)
 =========
