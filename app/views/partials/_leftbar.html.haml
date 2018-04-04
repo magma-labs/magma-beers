@@ -7,7 +7,7 @@
         = current_user.name ||= current_user.email
 %ul#slide-out.side-nav.fixed.grey.darken-4.blue-grey-text.text-lighten-4
   #profilepic
-    = image_tag @usr_avatar, size: "150x150", class: 'circle responsive-img', onerror: "this.onerror=null;this.src='#{current_user.gravatar_url}';"
+    = image_tag @usr_avatar, size: "150x150", class: 'circle responsive-img'
     .profile-name
       = current_user.name ||= current_user.email
   %li{ class: menu_class_active(user_root_path, new_beer_log_path)}
