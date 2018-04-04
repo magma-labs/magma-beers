@@ -72,6 +72,7 @@ group :test do
   gem 'capybara', '~> 2.13'
   gem 'capybara-webkit'
   gem 'chromedriver-helper'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'ffaker'

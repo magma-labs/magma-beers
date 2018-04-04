@@ -20,6 +20,8 @@
 .pgvmrc
 dump.rdb
 
+coverage/*
+
 # Dotenv
 /.env
 
