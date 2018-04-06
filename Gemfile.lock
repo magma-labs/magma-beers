@@ -807,6 +807,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
+    rack-cors (1.0.2)
     rack-protection (2.0.1)
       rack
     rack-test (0.8.3)
@@ -993,6 +994,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.1.5)
   rails-controller-testing
   redis (~> 4.0)
