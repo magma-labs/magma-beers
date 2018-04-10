@@ -1,34 +1,50 @@
-[![Build Status](https://travis-ci.org/magma-labs/magma-beers.svg?branch=master)
-](https://travis-ci.org/magma-labs/magma-beers)
-[![Code Climate](https://codeclimate.com/github/magma-labs/magma-beers.svg)
-](https://codeclimate.com/github/magma-labs/magma-beers)
-[![Coverage Status](https://coveralls.io/repos/github/magma-labs/magma-beers/badge.svg?branch=master)
-](https://coveralls.io/github/magma-labs/magma-beers?branch=master)
-[![Inline docs](http://inch-ci.org/github/magma-labs/magma-beers.svg)
-](http://inch-ci.org/github/magma-labs/magma-beers)
+Magma Beers [![Build Status](https://travis-ci.org/magma-labs/magma-beers.svg?branch=master)](https://travis-ci.org/magma-labs/magma-beers) [![Code Climate](https://codeclimate.com/github/magma-labs/magma-beers.svg)](https://codeclimate.com/github/magma-labs/magma-beers) [![Coverage Status](https://coveralls.io/repos/github/magma-labs/magma-beers/badge.svg?branch=master)](https://coveralls.io/github/magma-labs/magma-beers?branch=master)  [![Inline docs](http://inch-ci.org/github/magma-labs/magma-beers.svg?branch=master)](http://inch-ci.org/github/magma-labs/magma-beers)
 =========
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Magma Beers is a web application where you can log and share the beers you drink during the day, also you can see the information bout all beers of the world.
 
-Things you may want to cover:
+The application allows you to login with OmniAuth with Google and Facebook,
 
-* Ruby version
+### Getting started
 
-* System dependencies
+* Install Ruby
+  - We recommend to use Rbenv and latest ruby version
+  - Install bundler gem 
 
-* Configuration
+```
+gem install bundler
+```
+* Necesary drivers
+  - Chrome: ChromeDriver `brew install chromedriver`
+  - Firefox: geckodriver `brew install geckodriver`
+* Clone the project and install the dependencies
 
-* Database creation
+```
+$ bundle install
+```
 
-* Database initialization
+Next, setup the database:
 
-* How to run the test suite
+```
+$ rails db:setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the seed to generate the admin user for administrate
+user: admin@test.com
+password: beersadmin
 
-* Deployment instructions
+```
+$ rails db:seed
+```
+
+Finally, run the Rspec test suite to verify that everything is working correctly:
+
+```
+$ bundle exec rspec spec
+```
+
+
+### Services (job queues, cache servers, search engines, etc.)
 
 * How to run sidekiq on development
 
