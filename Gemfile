@@ -39,6 +39,7 @@ gem 'sidekiq'
 # Devise
 gem 'devise'
 gem 'devise-async'
+gem 'devise_token_auth'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

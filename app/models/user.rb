@@ -1,11 +1,16 @@
 class User < ApplicationRecord
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable,
+    :confirmable, :omniauthable
+  include DeviseTokenAuth::Concerns::User
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :async,
-         :recoverable, :rememberable, :trackable, :confirmable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-         has_many :beer_logs, dependent: :destroy
+    :recoverable, :rememberable, :trackable, :confirmable,
+    :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  has_many :beer_logs, dependent: :destroy
   has_attached_file :photo,
     styles: { thumbnail: "300x300>", thumb: "150x150>", small: "20x20" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
@@ -14,6 +19,7 @@ class User < ApplicationRecord
   gravtastic
 
   after_create :assign_role
+  before_validation :set_uid
 
   validates_uniqueness_of :email
   validates_presence_of :email
@@ -30,6 +36,17 @@ class User < ApplicationRecord
 
   def assign_role
     add_role(:user)
+  end
+
+  def set_uid
+    self.uid = self.class.generate_uid if self.uid.blank?
+  end
+
+  def self.generate_uid
+    loop do
+      token = Devise.friendly_token
+      break token unless to_adapter.find_first({ uid: token })
+    end
   end
 
   def count_beers_by_week

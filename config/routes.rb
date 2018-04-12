@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  # mount_devise_token_auth_for 'User', at: 'auth'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
   # Api
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
       get '/beers', to: 'beers#index'
       resources :beer_logs
     end
