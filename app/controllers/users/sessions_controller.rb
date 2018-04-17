@@ -1,6 +1,7 @@
 module Users
   class SessionsController < Devise::SessionsController
     skip_before_action :verify_authenticity_token, only: :create, raise: false
+    wrap_parameters :user, include: [:email, :password]
 
     def create
       self.resource = warden.authenticate!(auth_options)

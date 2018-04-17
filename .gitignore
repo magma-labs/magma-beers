@@ -19,6 +19,7 @@
 .byebug_history
 .pgvmrc
 dump.rdb
+.DS_Store
 
 coverage/*
 

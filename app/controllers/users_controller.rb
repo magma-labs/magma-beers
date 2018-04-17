@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :user
+  before_action :autenticate_user, unles: :verify_api
+  wrap_parameters :user, include: [:email, :password]
 
   def index
   end

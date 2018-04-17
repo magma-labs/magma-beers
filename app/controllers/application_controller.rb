@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  # before_action :get_user_avatar
+  before_action :get_user_avatar
+  protect_from_forgery with: :exception, if: :verify_api
+  respond_to :html, :json
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.has_role?(:admin)
@@ -39,6 +41,10 @@ class ApplicationController < ActionController::Base
       @current_user = current_user
     end
     @current_user
+  end
+
+  def verify_api
+    params[:controller].split('/')[0] != 'devise_token_auth'
   end
 
 end

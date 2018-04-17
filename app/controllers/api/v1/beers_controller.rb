@@ -2,12 +2,11 @@
 
 module Api
   module V1
-    class BeersController < ::BeersController
+    class BeersController < Api::V1::ApplicationController
       respond_to :json
 
       def index
-        super
-        respond_with @beers
+        render json: {text: 'test'}
       end
     end
   end
