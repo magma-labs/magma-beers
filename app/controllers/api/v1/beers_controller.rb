@@ -6,7 +6,8 @@ module Api
       respond_to :json
 
       def index
-        render json: {text: 'test'}
+        beers = Beer.all
+        respond_with(beers)
       end
     end
   end
