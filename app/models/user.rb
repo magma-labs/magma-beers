@@ -1,15 +1,9 @@
 class User < ApplicationRecord
-  # Include default devise modules.
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable,
-    :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
   rolify
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :async,
-    :recoverable, :rememberable, :trackable, :confirmable,
-    :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  devise :database_authenticatable, :registerable, :async, :validatable,
+         :recoverable, :rememberable, :trackable, :confirmable,
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :beer_logs, dependent: :destroy
   has_attached_file :photo,
     styles: { thumbnail: "300x300>", thumb: "150x150>", small: "20x20" }

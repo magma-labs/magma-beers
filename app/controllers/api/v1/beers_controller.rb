@@ -6,7 +6,7 @@ module Api
       respond_to :json
 
       def index
-        beers = Beer.all
+        beers = Beer.all.limit(10)
         respond_with(beers)
       end
     end
